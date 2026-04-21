@@ -7,6 +7,7 @@ on:
       - '.well-known/**'
       - 'index.html'
       - 'privacy.html'
+      - 'ToS.html'
       - '.github/workflows/deploy.yml'
 
 jobs:
@@ -37,6 +38,9 @@ jobs:
           echo "=== Uploading privacy.html ==="
           scp -i ~/.ssh/id_rsa privacy.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
 
+          echo "=== Uploading ToS.html ==="
+          scp -i ~/.ssh/id_rsa ToS.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
+
           echo "✅ Files uploaded to server"
 
       - name: Sync Files to NGINX Container
@@ -46,6 +50,7 @@ jobs:
           podman cp /var/www/public.scomm.ai/.well-known mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/index.html mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/privacy.html mnm-nginx:/usr/share/nginx/html/
+          podman cp /var/www/public.scomm.ai/ToS.html mnm-nginx:/usr/share/nginx/html/
           echo "✅ Files synced to NGINX container"
           EOF
 
@@ -53,7 +58,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
           echo "=== Files synced to NGINX container ==="
-          podman exec mnm-nginx ls -lah /usr/share/nginx/html/ | grep -E "index|privacy|.well-known"
+          podman exec mnm-nginx ls -lah /usr/share/nginx/html/ | grep -E "index|privacy|ToS|.well-known"
 
           echo ""
           echo "=== .well-known files ==="
@@ -81,6 +86,7 @@ jobs:
           echo "=== Testing HTML pages ==="
           curl -s -I https://public.scomm.ai/index.html | head -3
           curl -s -I https://public.scomm.ai/privacy.html | head -3
+          curl -s -I https://public.scomm.ai/ToS.html | head -3
 
           echo ""
           echo "✅ All deployed content responding"
