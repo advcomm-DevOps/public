@@ -2124,30 +2124,96 @@ Certain features of our services may not function properly if required data is d
       <ul>
         <li>Subject: Privacy Policy Translation Request</li>
       </ul>
-      <p>SUMMARY OF OUR PRIVACY COMMITMENTS</p>
-      <p>Privacy-First Architecture: ✓ All email processing happens on YOUR device, not our servers ✓ We never access, read, or store your email content ✓ We never see email headers, metadata, or sender information ✓ Your emails stay with your email provider (Gmail, Microsoft, IMAP server) ✓ Client-side architecture across all platforms ✓ Zero-knowledge encryption for private keys</p>
-      <p>What We Actually Collect:</p>
-      <dl>
-        <dt>Account &amp; Authentication</dt>
-        <dd>✓ Name, email address (for account creation) ✓ SSO identifiers (Google, Microsoft) ✓ Login credentials (encrypted)</dd>
-        <dt>Billing (Paying Parties Only)</dt>
-        <dd>✓ Billing address ✓ Payment tokens (Stripe, PayPal) ✓ Transaction history</dd>
-        <dt>Encryption Services</dt>
-        <dd>✓ Public cryptographic keys ✓ Email address hashes (SHA-256, non-reversible) ✓ Optionally: Encrypted private key backups (with YOUR password using AES-256-GCM)</dd>
-        <dt>Connectivity (SComm Connect)</dt>
-        <dd>✓ IP addresses (temporary, for routing) ✓ Device identifiers ✓ Access Control Lists</dd>
-        <dt>Usage &amp; Billing</dt>
-        <dd>✓ Relay usage data (for usage-based billing) ✓ Party IDs (Paying and Using)</dd>
-        <dt>What We Never Collect</dt>
-        <dd>✗ Email content or communications ✗ Email metadata or headers ✗ Your email provider account credentials ✗ Unencrypted private cryptographic keys ✗ Your private key encryption passwords ✗ Personal data during version update checks ✗ Communication content (even through relay servers - it&#x27;s encrypted)</dd>
-        <dt>Google API Compliance</dt>
-        <dd>✓ Process Gmail data only on your device ✓ Use Gmail scopes only for email functionality ✓ Never share Gmail data with third parties ✓ Never use Gmail data for advertising or analytics ✓ Allow data deletion anytime</dd>
-        <dt>Your Rights</dt>
-        <dd>✓ Access your data (including all stored information) ✓ Correct inaccurate information ✓ Delete your account and data ✓ Export your data in machine-readable formats ✓ Revoke OAuth access anytime (Google, Microsoft) ✓ Delete individual components (public keys, backups, devices) ✓ Opt out of marketing communications ✓ File complaints with regulators</dd>
-        <dt>Security Measures</dt>
-        <dd>✓ Zero-knowledge architecture for private keys ✓ AES-256-GCM encryption for optional key backups ✓ TLS/HTTPS for all communications ✓ DTLS-SRTP for peer-to-peer transfers ✓ Short-lived access tokens for enhanced security ✓ Cryptographically signed authentication tokens ✓ Client-side processing on all platforms ✓ Annual security assessments by Google-approved third parties ✓ PCI DSS compliance for payments ✓ Encrypted backups and secure storage</dd>
-      </dl>
-      <p>Data Retention: ✓ You control public key retention (delete anytime) ✓ Account data deleted within 30 days of request ✓ Billing records retained 7 years (legal requirement) ✓ Temporary data (logs, IP addresses) deleted quickly (7-90 days) ✓ No permanent tracking of your activity</p>
+      <h3>SUMMARY OF OUR PRIVACY COMMITMENTS</h3>
+      <h4>Privacy-First Architecture</h4>
+      <ul>
+        <li>✓ All email processing happens on YOUR device, not our servers</li>
+        <li>✓ We never access, read, or store your email content</li>
+        <li>✓ We never see email headers, metadata, or sender information</li>
+        <li>✓ Your emails stay with your email provider (Gmail, Microsoft, IMAP server)</li>
+        <li>✓ Client-side architecture across all platforms</li>
+        <li>✓ Zero-knowledge encryption for private keys</li>
+      </ul>
+      <h4>What We Actually Collect</h4>
+      <h5>Account &amp; Authentication</h5>
+      <ul>
+        <li>✓ Name, email address (for account creation)</li>
+        <li>✓ SSO identifiers (Google, Microsoft)</li>
+        <li>✓ Login credentials (encrypted)</li>
+      </ul>
+      <h5>Billing (Paying Parties Only)</h5>
+      <ul>
+        <li>✓ Billing address</li>
+        <li>✓ Payment tokens (Stripe, PayPal)</li>
+        <li>✓ Transaction history</li>
+      </ul>
+      <h5>Encryption Services</h5>
+      <ul>
+        <li>✓ Public cryptographic keys</li>
+        <li>✓ Email address hashes (SHA-256, non-reversible)</li>
+        <li>✓ Optionally: Encrypted private key backups (with YOUR password using AES-256-GCM)</li>
+      </ul>
+      <h5>Connectivity (SComm Connect)</h5>
+      <ul>
+        <li>✓ IP addresses (temporary, for routing)</li>
+        <li>✓ Device identifiers</li>
+        <li>✓ Access Control Lists</li>
+      </ul>
+      <h5>Usage &amp; Billing</h5>
+      <ul>
+        <li>✓ Relay usage data (for usage-based billing)</li>
+        <li>✓ Party IDs (Paying and Using)</li>
+      </ul>
+      <h5>What We Never Collect</h5>
+      <ul>
+        <li>✗ Email content or communications</li>
+        <li>✗ Email metadata or headers</li>
+        <li>✗ Your email provider account credentials</li>
+        <li>✗ Unencrypted private cryptographic keys</li>
+        <li>✗ Your private key encryption passwords</li>
+        <li>✗ Personal data during version update checks</li>
+        <li>✗ Communication content (even through relay servers - it&#x27;s encrypted)</li>
+      </ul>
+      <h5>Google API Compliance</h5>
+      <ul>
+        <li>✓ Process Gmail data only on your device</li>
+        <li>✓ Use Gmail scopes only for email functionality</li>
+        <li>✓ Never share Gmail data with third parties</li>
+        <li>✓ Never use Gmail data for advertising or analytics</li>
+        <li>✓ Allow data deletion anytime</li>
+      </ul>
+      <h5>Your Rights</h5>
+      <ul>
+        <li>✓ Access your data (including all stored information)</li>
+        <li>✓ Correct inaccurate information</li>
+        <li>✓ Delete your account and data</li>
+        <li>✓ Export your data in machine-readable formats</li>
+        <li>✓ Revoke OAuth access anytime (Google, Microsoft)</li>
+        <li>✓ Delete individual components (public keys, backups, devices)</li>
+        <li>✓ Opt out of marketing communications</li>
+        <li>✓ File complaints with regulators</li>
+      </ul>
+      <h5>Security Measures</h5>
+      <ul>
+        <li>✓ Zero-knowledge architecture for private keys</li>
+        <li>✓ AES-256-GCM encryption for optional key backups</li>
+        <li>✓ TLS/HTTPS for all communications</li>
+        <li>✓ DTLS-SRTP for peer-to-peer transfers</li>
+        <li>✓ Short-lived access tokens for enhanced security</li>
+        <li>✓ Cryptographically signed authentication tokens</li>
+        <li>✓ Client-side processing on all platforms</li>
+        <li>✓ Annual security assessments by Google-approved third parties</li>
+        <li>✓ PCI DSS compliance for payments</li>
+        <li>✓ Encrypted backups and secure storage</li>
+      </ul>
+      <h4>Data Retention</h4>
+      <ul>
+        <li>✓ You control public key retention (delete anytime)</li>
+        <li>✓ Account data deleted within 30 days of request</li>
+        <li>✓ Billing records retained 7 years (legal requirement)</li>
+        <li>✓ Temporary data (logs, IP addresses) deleted quickly (7-90 days)</li>
+        <li>✓ No permanent tracking of your activity</li>
+      </ul>
       <p>ACKNOWLEDGMENT</p>
       <p>By using scomm.ai applications and services, you acknowledge that you have read, understood, and agree to this Privacy Policy.</p>
       <p>If you do not agree with this policy, please do not use our services.</p>
