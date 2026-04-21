@@ -1,0 +1,94 @@
+name: Deploy Public Content
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.well-known/**'
+      - 'index.html'
+      - 'privacy.html'
+      - '.github/workflows/deploy.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+
+      - name: Upload Files to Server
+        run: |
+          echo "=== Uploading .well-known files ==="
+          scp -i ~/.ssh/id_rsa -r .well-known root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
+
+          echo "=== Uploading index.html ==="
+          scp -i ~/.ssh/id_rsa index.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
+
+          echo "=== Uploading privacy.html ==="
+          scp -i ~/.ssh/id_rsa privacy.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
+
+          echo "✅ Files uploaded to server"
+
+      - name: Sync Files to NGINX Container
+        run: |
+          ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
+          echo "=== Syncing files to NGINX container ==="
+          podman cp /var/www/public.scomm.ai/.well-known mnm-nginx:/usr/share/nginx/html/
+          podman cp /var/www/public.scomm.ai/index.html mnm-nginx:/usr/share/nginx/html/
+          podman cp /var/www/public.scomm.ai/privacy.html mnm-nginx:/usr/share/nginx/html/
+          echo "✅ Files synced to NGINX container"
+          EOF
+
+      - name: Verify Files in Container
+        run: |
+          ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
+          echo "=== Files synced to NGINX container ==="
+          podman exec mnm-nginx ls -lah /usr/share/nginx/html/ | grep -E "index|privacy|.well-known"
+
+          echo ""
+          echo "=== .well-known files ==="
+          podman exec mnm-nginx ls -lah /usr/share/nginx/html/.well-known/
+          EOF
+
+      - name: Reload NGINX
+        run: |
+          ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
+          echo "=== Reloading NGINX ==="
+          podman exec mnm-nginx nginx -s reload
+          echo "✅ NGINX reloaded"
+          EOF
+
+      - name: Health Check
+        run: |
+          ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
+          sleep 2
+
+          echo "=== Testing .well-known endpoints ==="
+          curl -s -I https://public.scomm.ai/.well-known/assetlinks.json | head -3
+          curl -s -I https://public.scomm.ai/.well-known/apple-app-site-association | head -3
+
+          echo ""
+          echo "=== Testing HTML pages ==="
+          curl -s -I https://public.scomm.ai/index.html | head -3
+          curl -s -I https://public.scomm.ai/privacy.html | head -3
+
+          echo ""
+          echo "✅ All deployed content responding"
+          EOF
+
+      - name: Deployment Complete
+        run: echo "✅ public.scomm.ai content deployed successfully"
+
+      - name: Cleanup
+        run: |
+          rm -f ~/.ssh/id_rsa
