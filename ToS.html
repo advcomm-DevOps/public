@@ -14,7 +14,7 @@
     }
 
     .container {
-        max-width: 760px;
+        max-width: 900px;
         margin: 40px auto;
         background: white;
         padding: 40px;
@@ -103,7 +103,7 @@
     }
 
     nav li {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     nav a {
@@ -118,234 +118,1052 @@
     address {
         font-style: normal;
     }
+
+    .acknowledgment {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 30px;
+    }
+
+    .acknowledgment ul {
+        margin: 10px 0;
+    }
+
+    .acknowledgment li {
+        margin-bottom: 5px;
+    }
+
+    strong {
+        font-weight: 600;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <h1>Terms of Service</h1>
-      <p><strong>scomm.ai Email Client</strong></p>
+      <p><strong>scomm.ai Platform and Services</strong></p>
       <p>Operated by <strong>Media Routes Inc.</strong>, incorporated in the Province of Ontario, Canada.</p>
-      <p><strong>Last Updated:</strong> [Insert Date]</p>
+      <p><strong>Effective Date:</strong> February 06, 2026</p>
+      <p><strong>Last Updated:</strong> ___________________</p>
+      <p><strong>Version:</strong> 3.0</p>
     </header>
 
     <nav>
-      <h3>Contents</h3>
+      <h3>Table of Contents</h3>
       <ul>
         <li><a href="#acceptance-of-terms">1. Acceptance of Terms</a></li>
-        <li><a href="#service-description">2. Service Description</a></li>
-        <li><a href="#no-server-storage-or-sync">3. No Server-Side Storage, Caching, or Metadata Sync</a></li>
-        <li><a href="#user-accounts-and-authentication">4. User Accounts and Authentication</a></li>
-        <li><a href="#encryption-and-security">5. Encryption and Security</a></li>
-        <li><a href="#acceptable-use">6. Acceptable Use</a></li>
-        <li><a href="#third-party-services">7. Third-Party Services</a></li>
-        <li><a href="#enterprise-and-organization-use">8. Enterprise and Organization Use</a></li>
-        <li><a href="#certificate-authority-and-trust-model">9. Certificate Authority and Trust Model</a></li>
-        <li><a href="#scomm-connect">10. scomm Connect and Peer-to-Peer Connectivity</a></li>
-        <li><a href="#intellectual-property">11. Intellectual Property</a></li>
-        <li><a href="#fees-billing-and-subscriptions">12. Fees, Billing, and Subscriptions</a></li>
-        <li><a href="#no-warranty">13. No Warranty</a></li>
-        <li><a href="#limitation-of-liability">14. Limitation of Liability</a></li>
-        <li><a href="#indemnification">15. Indemnification</a></li>
-        <li><a href="#compliance-with-laws">16. Compliance with Laws and Export Controls</a></li>
-        <li><a href="#termination">17. Termination</a></li>
-        <li><a href="#privacy">18. Privacy</a></li>
-        <li><a href="#changes-to-terms">19. Changes to Terms</a></li>
-        <li><a href="#governing-law-and-jurisdiction">20. Governing Law and Jurisdiction</a></li>
-        <li><a href="#contact-information">21. Contact Information</a></li>
+        <li><a href="#definitions">2. Definitions</a></li>
+        <li><a href="#service-description">3. Service Description and Scope</a></li>
+        <li><a href="#eligibility-and-registration">4. Eligibility and Account Registration</a></li>
+        <li><a href="#user-accounts-and-authentication">5. User Accounts and Authentication</a></li>
+        <li><a href="#service-components">6. Service Components</a></li>
+        <li><a href="#privacy-by-design">7. Privacy-by-Design Architecture</a></li>
+        <li><a href="#no-server-storage">8. No Server-Side Email Storage or Caching</a></li>
+        <li><a href="#encryption-and-security">9. Encryption and Security</a></li>
+        <li><a href="#certificate-authority">10. Certificate Authority and Trust Model</a></li>
+        <li><a href="#scomm-connect">11. SComm Connect and Peer-to-Peer Connectivity</a></li>
+        <li><a href="#relay-services">12. Relay Services</a></li>
+        <li><a href="#billing-subscriptions">13. Billing, Subscriptions, and Payments</a></li>
+        <li><a href="#multi-user-accounts">14. Multi-User Accounts (Paying Party and Using Parties)</a></li>
+        <li><a href="#user-responsibilities">15. User Responsibilities and Acceptable Use</a></li>
+        <li><a href="#prohibited-activities">16. Prohibited Activities</a></li>
+        <li><a href="#third-party-services">17. Third-Party Services and Integration</a></li>
+        <li><a href="#enterprise-and-organization-use">18. Enterprise and Organization Use</a></li>
+        <li><a href="#intellectual-property">19. Intellectual Property Rights</a></li>
+        <li><a href="#user-content">20. User Content and Data Ownership</a></li>
+        <li><a href="#api-access">21. API Access and Rate Limits</a></li>
+        <li><a href="#service-availability">22. Service Availability and Modifications</a></li>
+        <li><a href="#data-retention">23. Data Retention and Deletion</a></li>
+        <li><a href="#export-controls">24. Export Controls and Compliance</a></li>
+        <li><a href="#privacy">25. Privacy and Data Protection</a></li>
+        <li><a href="#no-warranty">26. Warranties Disclaimer</a></li>
+        <li><a href="#limitation-of-liability">27. Limitation of Liability</a></li>
+        <li><a href="#indemnification">28. Indemnification</a></li>
+        <li><a href="#dispute-resolution">29. Dispute Resolution and Arbitration</a></li>
+        <li><a href="#termination">30. Termination and Suspension</a></li>
+        <li><a href="#effect-of-termination">31. Effect of Termination</a></li>
+        <li><a href="#force-majeure">32. Force Majeure</a></li>
+        <li><a href="#assignment">33. Assignment</a></li>
+        <li><a href="#severability">34. Severability</a></li>
+        <li><a href="#entire-agreement">35. Entire Agreement</a></li>
+        <li><a href="#waiver">36. Waiver</a></li>
+        <li><a href="#changes-to-terms">37. Changes to Terms</a></li>
+        <li><a href="#notices">38. Notices and Communication</a></li>
+        <li><a href="#governing-law">39. Governing Law and Jurisdiction</a></li>
+        <li><a href="#contact-information">40. Contact Information</a></li>
       </ul>
     </nav>
 
     <main>
-    <section aria-labelledby="acceptance-of-terms">
-      <h2 id="acceptance-of-terms">1. Acceptance of Terms</h2>
-      <p>By accessing or using the scomm.ai Email Client, including its desktop applications, mobile applications, website, account portal, billing portal, and related services (collectively, the “Service”), you agree to be bound by these Terms of Service (the “Terms”). If you do not agree to these Terms, you must not access or use the Service.</p>
-      <p>You represent that you have the legal capacity to enter into a binding agreement or, if you are using the Service on behalf of an organization, that you have authority to bind that organization to these Terms.</p>
-    </section>
-
-    <section aria-labelledby="service-description">
-      <h2 id="service-description">2. Service Description</h2>
-      <p>The Service is an email client and related software platform that enables users to access, manage, and protect their email communications through third-party email services and compatible infrastructure.</p>
-      <p>The Service may include features for:</p>
+    <section id="acceptance-of-terms">
+      <h2>1. Acceptance of Terms</h2>
+      <h3>1.1 Binding Agreement</h3>
+      <p>By accessing, downloading, installing, or using any part of the scomm.ai platform, including:</p>
       <ul>
-        <li>accessing and managing third-party email accounts;</li>
-        <li>sending, receiving, organizing, and viewing emails;</li>
-        <li>using encryption technologies, including PGP, S/MIME, and post-quantum cryptography;</li>
-        <li>managing user accounts, subscriptions, and settings; and</li>
-        <li>using optional communication or connectivity layers made available by Media Routes Inc.</li>
+        <li>The scomm.ai website (<a href="https://www.scomm.ai/">https://www.scomm.ai/</a>)</li>
+        <li>Desktop applications (Windows, macOS, Linux)</li>
+        <li>Mobile applications (iOS, Android)</li>
+        <li>Billing portal (<a href="https://billing.scomm.ai/">https://billing.scomm.ai/</a>)</li>
+        <li>Server infrastructure (pubkey, connect, relay, public info, download servers)</li>
+        <li>Any related services, features, or content</li>
       </ul>
-      <p><strong>Important clarification:</strong> scomm.ai is <strong>not</strong> an email service provider. Media Routes Inc. does not provide mailbox hosting, message transport as an email host, or independent email delivery services. The Service operates as a client that connects to third-party email providers and compatible servers selected by the user.</p>
-    </section>
+      <p>(collectively, the "Service" or "Services"), you agree to be bound by these Terms of Service (the "Terms" or "Agreement").</p>
 
-    <section aria-labelledby="no-server-storage-or-sync">
-      <h2 id="no-server-storage-or-sync">3. No Server-Side Storage, Caching, or Metadata Sync</h2>
-      <p>The Service is designed so that Media Routes Inc. does not cache, store, or synchronize email content or email metadata on its servers. Email data is intended to be processed locally on user devices or obtained directly from third-party providers connected by the user.</p>
-      <p>You acknowledge and agree that:</p>
+      <h3>1.2 Legal Capacity</h3>
+      <p>You represent and warrant that:</p>
       <ul>
-        <li>Media Routes Inc. does not maintain a server-side copy of your email content or email metadata;</li>
-        <li>local persistence of data depends on your device, software environment, and usage choices; and</li>
-        <li>you are solely responsible for device security, backups, recovery, and local data integrity.</li>
+        <li>You are at least 18 years of age (or the age of majority in your jurisdiction)</li>
+        <li>You have the legal capacity to enter into a binding contract</li>
+        <li>If using the Service on behalf of an organization, you have authority to bind that organization to these Terms</li>
+        <li>Your use of the Service does not violate any applicable law or regulation</li>
       </ul>
+
+      <h3>1.3 Refusal to Accept</h3>
+      <p>If you do not agree to these Terms, you must immediately discontinue all use of the Service and uninstall any installed applications.</p>
+
+      <h3>1.4 Additional Terms</h3>
+      <p>Certain features or services may be subject to additional terms and conditions, which will be presented to you at the time of access or use. Those additional terms are incorporated into these Terms by reference.</p>
     </section>
 
-    <section aria-labelledby="user-accounts-and-authentication">
-      <h2 id="user-accounts-and-authentication">4. User Accounts and Authentication</h2>
-      <p>The Service may allow or require authentication through third-party identity providers or third-party email providers. You are solely responsible for maintaining the confidentiality of your login credentials, devices, tokens, recovery methods, and any linked accounts.</p>
-      <p>You are responsible for all activity occurring through your account or authenticated session to the maximum extent permitted by law. Media Routes Inc. is not responsible for losses, access issues, or unauthorized activity resulting from compromised credentials, compromised devices, or failures of third-party authentication systems.</p>
-    </section>
-
-    <section aria-labelledby="encryption-and-security">
-      <h2 id="encryption-and-security">5. Encryption and Security</h2>
-      <p>The Service may provide tools and workflows to support encrypted communication, including PGP, S/MIME, and post-quantum cryptography. These features are provided to assist users in securing communications, but effective security depends on proper configuration, device security, recipient trust, and correct key handling by users and organizations.</p>
-      <p>You acknowledge and agree that:</p>
+    <section id="definitions">
+      <h2>2. Definitions</h2>
+      <p>For purposes of these Terms:</p>
       <ul>
-        <li>you are solely responsible for generating, importing, exporting, storing, backing up, and protecting your private keys and other sensitive cryptographic material;</li>
-        <li>the Service may provide options to export private keys or save private keys, and you assume all risk associated with use of those options;</li>
-        <li>you are solely responsible for evaluating trust in certificates, keys, recipients, and certificate authorities; and</li>
-        <li>Media Routes Inc. does not guarantee absolute confidentiality, integrity, authenticity, or future cryptographic resilience.</li>
-      </ul>
-      <p>Loss, theft, disclosure, corruption, or misuse of private keys may permanently compromise secure access to communications. Media Routes Inc. is not liable for such events.</p>
-    </section>
-
-    <section aria-labelledby="acceptable-use">
-      <h2 id="acceptable-use">6. Acceptable Use</h2>
-      <p>You may use the Service only in compliance with applicable law and these Terms. You must not:</p>
-      <ul>
-        <li>use the Service for unlawful, fraudulent, abusive, or harmful activity;</li>
-        <li>transmit malware, malicious code, spam, phishing messages, or unauthorized communications;</li>
-        <li>attempt to gain unauthorized access to accounts, devices, networks, services, or data;</li>
-        <li>interfere with, disrupt, or degrade the Service or third-party systems connected to it; or</li>
-        <li>reverse engineer, probe, or exploit the Service except to the extent such restriction is prohibited by applicable law.</li>
+        <li><strong>"Account"</strong> means your registered user account for accessing the Service.</li>
+        <li><strong>"Paying Party"</strong> means the individual or entity that holds an active paid subscription and is responsible for payment.</li>
+        <li><strong>"Using Party"</strong> means an individual authorized by a Paying Party to use the Services under that Paying Party's subscription. One Paying Party may add multiple Using Parties.</li>
+        <li><strong>"Provider Node"</strong> means a device or server running the SComm Connect product that provides connectivity services.</li>
+        <li><strong>"Personal Data"</strong> means any information relating to an identified or identifiable natural person.</li>
+        <li><strong>"User Content"</strong> means any data, information, or materials you provide, upload, or transmit through the Service.</li>
+        <li><strong>"Third-Party Services"</strong> means services provided by entities other than Media Routes Inc., including email providers, identity providers, payment processors, and cloud infrastructure.</li>
+        <li><strong>"Client Application"</strong> means desktop, mobile, or browser-based software applications that connect to the Service.</li>
+        <li><strong>"Server Infrastructure"</strong> means the backend servers and systems operated by Media Routes Inc.</li>
+        <li><strong>"SSO"</strong> means Single Sign-On authentication through third-party identity providers.</li>
+        <li><strong>"OTP"</strong> means One-Time Password sent via email for authentication.</li>
+        <li><strong>"P2P"</strong> means peer-to-peer direct communication between devices.</li>
+        <li><strong>"Cryptographic Keys"</strong> means public keys, private keys, and other cryptographic materials used for encryption and authentication.</li>
       </ul>
     </section>
 
-    <section aria-labelledby="third-party-services">
-      <h2 id="third-party-services">7. Third-Party Services</h2>
-      <p>The Service depends on external systems and providers, including email providers, identity providers, hosting infrastructure, and payment processors. Your use of those services may be subject to separate third-party terms and privacy policies.</p>
-      <p>Media Routes Inc. does not control and is not responsible for the availability, security, content, interoperability, or policies of third-party services. Interruptions, authentication failures, provider policy changes, protocol changes, data access restrictions, throttling, outages, and service termination by third parties may affect your use of the Service.</p>
-    </section>
-
-    <section aria-labelledby="enterprise-and-organization-use">
-      <h2 id="enterprise-and-organization-use">8. Enterprise and Organization Use</h2>
-      <p>The Service may be used by organizations implementing organization-managed identity, security, or cryptographic infrastructure, including S/MIME deployments with internally managed certificate authorities.</p>
-      <p>If you use the Service on behalf of or through an organization:</p>
+    <section id="service-description">
+      <h2>3. Service Description and Scope</h2>
+      <h3>3.1 Nature of Service</h3>
+      <p>scomm.ai is an email client platform and related software ecosystem that enables users to:</p>
       <ul>
-        <li>your access may be provisioned, managed, restricted, monitored, or revoked by your organization;</li>
-        <li>your organization may define security requirements, encryption rules, retention policies, trust stores, and certificate validation policies; and</li>
-        <li>your organization is responsible for its own internal governance, compliance, and administrative actions.</li>
+        <li>Access and manage third-party email accounts</li>
+        <li>Send, receive, organize, and view emails</li>
+        <li>Utilize encryption technologies (PGP, S/MIME, post-quantum cryptography)</li>
+        <li>Manage subscriptions and account settings</li>
+        <li>Use peer-to-peer connectivity features (SComm Connect)</li>
+        <li>Access related services and applications</li>
+      </ul>
+
+      <h3>3.2 Not an Email Provider</h3>
+      <p><strong>IMPORTANT CLARIFICATION:</strong> Media Routes Inc. is <strong>NOT</strong> an email service provider. We do <strong>NOT</strong>:</p>
+      <ul>
+        <li>Provide mailbox hosting</li>
+        <li>Operate as a mail server or message transport agent</li>
+        <li>Provide independent email delivery services</li>
+        <li>Host or store your emails on our servers</li>
+        <li>Act as your primary email service</li>
+      </ul>
+      <p>The Service operates as a client that connects to third-party email providers and compatible servers selected by you.</p>
+
+      <h3>3.3 Client-Side Processing</h3>
+      <p>The Service is designed with a privacy-by-design architecture where:</p>
+      <ul>
+        <li>Email processing occurs on your local device</li>
+        <li>AI-powered features run locally on your device</li>
+        <li>Email content never passes through our servers</li>
+        <li>You maintain full control over your data</li>
+      </ul>
+
+      <h3>3.4 Service Evolution</h3>
+      <p>Media Routes Inc. reserves the right to:</p>
+      <ul>
+        <li>Add, modify, or remove features</li>
+        <li>Update software and infrastructure</li>
+        <li>Introduce new services or products</li>
+        <li>Discontinue services with reasonable notice</li>
       </ul>
     </section>
 
-    <section aria-labelledby="certificate-authority-and-trust-model">
-      <h2 id="certificate-authority-and-trust-model">9. Certificate Authority and Trust Model</h2>
-      <p>If an organization uses its own certificate authority or trust infrastructure with the Service, that organization is solely responsible for issuing, revoking, securing, and managing its certificates, roots, intermediates, policies, and validation rules.</p>
-      <p>Unless expressly stated otherwise in a separate written agreement, Media Routes Inc. does not act as a certificate authority, does not verify the authenticity of organization-issued certificates, and does not guarantee the trustworthiness or correctness of any certificate chain, trust anchor, revocation state, or identity claim.</p>
-      <p>All trust decisions remain the responsibility of the user and, where applicable, the user’s organization.</p>
-    </section>
-
-    <section aria-labelledby="scomm-connect">
-      <h2 id="scomm-connect">10. scomm Connect and Peer-to-Peer Connectivity</h2>
-      <p>The Service may include or interoperate with scomm connect or similar technologies that enable direct or relayed connectivity between endpoints, including peer-to-peer and proxy-style communications over technologies such as WebRTC and related protocols.</p>
-      <p>You acknowledge and agree that:</p>
+    <section id="eligibility-and-registration">
+      <h2>4. Eligibility and Account Registration</h2>
+      <h3>4.1 Eligibility Requirements</h3>
+      <p>To use the Service, you must:</p>
       <ul>
-        <li>Media Routes Inc. does not act as a content provider for data exchanged between endpoints;</li>
-        <li>Media Routes Inc. does not guarantee connection establishment, continuity, bandwidth, latency, interoperability, delivery, or fitness for any specific protocol or workload;</li>
-        <li>users are solely responsible for endpoint security, peer authentication, access controls, and legality of transmitted traffic; and</li>
-        <li>Media Routes Inc. does not monitor or store payload content except as may be required by law or as technically unavoidable for limited service operation.</li>
+        <li>Be at least 18 years of age (or age of majority in your jurisdiction)</li>
+        <li>Have the legal capacity to enter into contracts</li>
+        <li>Not be prohibited from using the Service under applicable law</li>
+        <li>Not have had your account previously terminated for violations</li>
       </ul>
-      <p>You must not use scomm connect or related features to bypass lawful restrictions, evade security controls, relay unlawful traffic, or access systems without authorization.</p>
-    </section>
 
-    <section aria-labelledby="intellectual-property">
-      <h2 id="intellectual-property">11. Intellectual Property</h2>
-      <p>Except for user-owned content and third-party materials, the Service, including its software, interfaces, branding, documentation, and related intellectual property, is owned by Media Routes Inc. or its licensors and is protected by applicable intellectual property laws.</p>
-      <p>These Terms do not transfer any ownership rights to you. Subject to these Terms, you receive only a limited, revocable, non-exclusive, non-transferable right to use the Service for its intended purpose.</p>
-      <p>You retain rights you may have in your own email content, local data, and cryptographic material, subject to applicable law and third-party rights.</p>
-    </section>
-
-    <section aria-labelledby="fees-billing-and-subscriptions">
-      <h2 id="fees-billing-and-subscriptions">12. Fees, Billing, and Subscriptions</h2>
-      <p>Certain parts of the Service may require payment, subscription enrollment, or both. If you purchase a paid plan, you agree to provide accurate billing information and authorize charges applicable to your selected plan.</p>
-      <p>Unless otherwise stated at the time of purchase:</p>
+      <h3>4.2 Account Registration</h3>
+      <p>When creating an account, you must:</p>
       <ul>
-        <li>fees are non-refundable;</li>
-        <li>subscriptions may renew automatically until canceled; and</li>
-        <li>you are responsible for applicable taxes, duties, and government charges.</li>
+        <li>Provide accurate, complete, and current information</li>
+        <li>Keep your account information updated</li>
+        <li>Not impersonate another person or entity</li>
+        <li>Not create multiple accounts to evade restrictions</li>
       </ul>
-      <p>Media Routes Inc. may modify pricing, billing structures, or service plans at any time, subject to applicable law.</p>
+
+      <h3>4.3 Account Types</h3>
+      <p><strong>Free Accounts:</strong> Basic access to core features, subject to limitations and restrictions.</p>
+      <p><strong>Paid Accounts:</strong> Subscription-based access to premium features and enhanced functionality.</p>
+      <p><strong>Enterprise Accounts:</strong> Custom pricing, features, and dedicated support.</p>
     </section>
 
-    <section aria-labelledby="no-warranty">
-      <h2 id="no-warranty">13. No Warranty</h2>
-      <p>The Service is provided on an <strong>“as is”</strong> and <strong>“as available”</strong> basis. To the maximum extent permitted by law, Media Routes Inc. disclaims all warranties, whether express, implied, statutory, or otherwise, including implied warranties of merchantability, fitness for a particular purpose, title, non-infringement, availability, compatibility, and error-free operation.</p>
-      <p>Media Routes Inc. does not warrant that the Service will be uninterrupted, secure, timely, accurate, complete, future-proof, or free of defects, vulnerabilities, or harmful components.</p>
-    </section>
+    <section id="user-accounts-and-authentication">
+      <h2>5. User Accounts and Authentication</h2>
+      <h3>5.1 Authentication Methods</h3>
+      <p>You may authenticate using:</p>
+      <p><strong>Single Sign-On (SSO):</strong> Google, Microsoft, or other supported identity providers.</p>
+      <p><strong>Email OTP (One-Time Password):</strong> Temporary password sent to your email address, valid for 10 minutes.</p>
+      <p><strong>OAuth:</strong> Third-party email provider authentication with limited permissions per your authorization.</p>
 
-    <section aria-labelledby="limitation-of-liability">
-      <h2 id="limitation-of-liability">14. Limitation of Liability</h2>
-      <p>To the maximum extent permitted by applicable law, Media Routes Inc. and its directors, officers, employees, contractors, affiliates, licensors, and service providers shall have <strong>no liability</strong> arising out of or related to the Service, these Terms, or your use of or inability to use the Service.</p>
-      <p>This exclusion applies to all forms of liability, including direct, indirect, incidental, consequential, special, exemplary, punitive, and other damages, and includes damages or loss relating to:</p>
+      <h3>5.2 Account Security</h3>
+      <p>You are solely responsible for:</p>
       <ul>
-        <li>data loss or corruption;</li>
-        <li>email access issues, transmission failures, or third-party provider errors;</li>
-        <li>key loss, certificate misuse, or encryption failures;</li>
-        <li>security breaches, compromised accounts, or compromised devices;</li>
-        <li>business interruption, lost profits, lost revenue, lost goodwill, or lost opportunities; and</li>
-        <li>financial loss or any other commercial or personal loss.</li>
+        <li>Maintaining confidentiality of login credentials</li>
+        <li>Securing devices used to access the Service</li>
+        <li>Protecting authentication tokens and recovery methods</li>
+        <li>Monitoring account activity for unauthorized use</li>
+        <li>Immediately notifying us of suspected unauthorized access</li>
       </ul>
-      <p>You use the Service entirely at your own risk.</p>
-    </section>
 
-    <section aria-labelledby="indemnification">
-      <h2 id="indemnification">15. Indemnification</h2>
-      <p>You agree to defend, indemnify, and hold harmless Media Routes Inc. and its directors, officers, employees, contractors, affiliates, licensors, and service providers from and against any claims, actions, demands, proceedings, liabilities, damages, judgments, settlements, penalties, losses, costs, and expenses, including reasonable legal fees, arising out of or relating to:</p>
+      <h3>5.3 Account Activity</h3>
+      <p>You are responsible for all activity occurring through your account, whether authorized or unauthorized, to the maximum extent permitted by law.</p>
+
+      <h3>5.4 Multi-Device Access</h3>
+      <p>You may access your account from multiple devices. Each device may receive a unique device identifier for security and access control purposes.</p>
+
+      <h3>5.5 Account Compromise</h3>
+      <p>Media Routes Inc. is not liable for:</p>
       <ul>
-        <li>your use of the Service;</li>
-        <li>your violation of these Terms;</li>
-        <li>your violation of applicable law or third-party rights; or</li>
-        <li>your handling, misuse, export, sharing, or deployment of cryptographic tools, credentials, keys, certificates, or network connectivity features.</li>
+        <li>Losses resulting from compromised credentials</li>
+        <li>Unauthorized account access due to user negligence</li>
+        <li>Failures of third-party authentication systems</li>
+        <li>Loss of access due to forgotten credentials</li>
+      </ul>
+
+      <h3>5.6 Two-Factor Authentication</h3>
+      <p>Where available, we strongly recommend enabling two-factor authentication for enhanced security.</p>
+    </section>
+
+    <section id="service-components">
+      <h2>6. Service Components</h2>
+      <h3>6.1 Static Website (scomm.ai)</h3>
+      <p>Public-facing website at <strong><a href="https://www.scomm.ai/">https://www.scomm.ai/</a></strong> providing information about the Service, marketing content, application downloads, and support resources.</p>
+
+      <h3>6.2 Billing Portal</h3>
+      <p>Secure portal at <strong><a href="https://billing.scomm.ai/">https://billing.scomm.ai/</a></strong> for subscription management, payment processing, invoice access, account settings, and multi-user management.</p>
+
+      <h3>6.3 Public Key Server (pubkey.scomm.ai)</h3>
+      <p>Infrastructure for storing and retrieving public cryptographic keys and enabling encrypted email communication.</p>
+
+      <h3>6.4 Connect Server (connect.scomm.ai)</h3>
+      <p>Facilitates peer-to-peer connection establishment, access control management, and connectivity coordination.</p>
+
+      <h3>6.5 Relay Server (relay.scomm.ai)</h3>
+      <p>Provides fallback connectivity when P2P is not possible, with encrypted data relay and usage-based billing for data transfer.</p>
+
+      <h3>6.6 Public Info Server (public.scomm.ai)</h3>
+      <p>Hosts public service information, version information, privacy policy, legal documents, and service discovery endpoints.</p>
+
+      <h3>6.7 Download Server (d.scomm.ai)</h3>
+      <p>Distributes desktop application installers, mobile application updates, AI models, and software updates.</p>
+
+      <h3>6.8 Authentication Server (auth.scomm.ai)</h3>
+      <p>Manages authentication tokens, token verification and renewal, session management, and OAuth token handling.</p>
+
+      <h3>6.9 Client Applications</h3>
+      <p><strong>Desktop Applications:</strong> Windows, macOS, Linux versions with local email processing and offline functionality.</p>
+      <p><strong>Mobile Applications:</strong> iOS and Android versions with mobile-optimized interface and push notifications.</p>
+    </section>
+
+    <section id="privacy-by-design">
+      <h2>7. Privacy-by-Design Architecture</h2>
+      <h3>7.1 Client-Side Processing</h3>
+      <p>The Service is designed so that:</p>
+      <ul>
+        <li>All email content processing occurs on your device</li>
+        <li>Email content is never transmitted to our servers</li>
+        <li>Email metadata remains on your device</li>
+        <li>AI-powered features run locally without cloud dependencies</li>
+      </ul>
+
+      <h3>7.2 Zero-Knowledge Architecture</h3>
+      <p>For encryption features:</p>
+      <ul>
+        <li>Private keys remain on your device (by default)</li>
+        <li>We cannot decrypt your encrypted private key backups</li>
+        <li>You control encryption passwords</li>
+        <li>We have no access to unencrypted sensitive data</li>
+      </ul>
+
+      <h3>7.3 Minimal Data Collection</h3>
+      <p>We collect only data necessary for service delivery, billing, security, and legal compliance.</p>
+    </section>
+
+    <section id="no-server-storage">
+      <h2>8. No Server-Side Email Storage or Caching</h2>
+      <h3>8.1 No Email Content Storage</h3>
+      <p>Media Routes Inc. does <strong>NOT</strong>:</p>
+      <ul>
+        <li>Cache email content on our servers</li>
+        <li>Store email messages</li>
+        <li>Synchronize email data to our servers</li>
+        <li>Maintain server-side copies of emails</li>
+        <li>Access or read email content</li>
+      </ul>
+
+      <h3>8.2 Email Data Flow</h3>
+      <p>Email data:</p>
+      <ul>
+        <li>Remains on third-party email provider servers (Gmail, Microsoft, IMAP servers)</li>
+        <li>Is processed locally on your device when accessed</li>
+        <li>May be cached locally on your device for performance</li>
+        <li>Is never routed through our servers for processing</li>
+      </ul>
+
+      <h3>8.3 User Responsibility</h3>
+      <p>You are solely responsible for device security, local data backups, data recovery, and data integrity on your devices.</p>
+
+      <h3>8.4 Metadata</h3>
+      <p>We do <strong>NOT</strong> collect or store email headers, subject lines, sender/recipient information, timestamps, folder information, or attachment metadata.</p>
+    </section>
+
+    <section id="encryption-and-security">
+      <h2>9. Encryption and Security</h2>
+      <h3>9.1 Encryption Features</h3>
+      <p>The Service provides tools for encrypted communication, including:</p>
+      <p><strong>PGP (Pretty Good Privacy):</strong> Email encryption using PGP standard with public/private key cryptography and digital signatures.</p>
+      <p><strong>S/MIME (Secure/Multipurpose Internet Mail Extensions):</strong> Certificate-based email encryption with organizational certificate authority support.</p>
+      <p><strong>Post-Quantum Cryptography:</strong> Future-resistant encryption algorithms protecting against quantum computing threats.</p>
+
+      <h3>9.2 User Responsibilities</h3>
+      <p><strong>Key Management:</strong> You are solely responsible for generating, importing, exporting, storing, backing up, and protecting your private keys.</p>
+      <p><strong>Key Security:</strong> You must ensure physical security of devices, password protection of key storage, and secure transmission of keys.</p>
+      <p><strong>Trust Decisions:</strong> You are responsible for verifying recipient public keys and evaluating certificate trust.</p>
+      <p><strong>Configuration:</strong> You must properly configure encryption with appropriate algorithm selection and key lengths.</p>
+
+      <h3>9.3 Optional Private Key Backup</h3>
+      <p>The Service may offer optional encrypted cloud backup of private keys:</p>
+      <ul>
+        <li>You choose the encryption password</li>
+        <li>Encryption uses AES-256-GCM</li>
+        <li>We cannot decrypt backups without your password</li>
+        <li>You assume all risks of using this feature</li>
+        <li>Loss of password means permanent loss of access</li>
+      </ul>
+
+      <h3>9.4 No Guarantees</h3>
+      <p>We do <strong>NOT</strong> guarantee absolute confidentiality, perfect forward secrecy, immunity from cryptographic attacks, or future cryptographic resilience.</p>
+
+      <h3>9.5 Key Compromise</h3>
+      <p>Loss, theft, disclosure, or compromise of private keys may permanently compromise communication security and enable decryption of past communications. Media Routes Inc. is NOT liable for consequences of key compromise.</p>
+
+      <h3>9.6 Security Best Practices</h3>
+      <p>We recommend using strong passwords, enabling two-factor authentication, keeping software updated, using hardware security keys where possible, and regularly backing up keys securely.</p>
+    </section>
+
+    <section id="certificate-authority">
+      <h2>10. Certificate Authority and Trust Model</h2>
+      <h3>10.1 Organization Certificate Authorities</h3>
+      <p>Organizations may deploy their own certificate authorities (CAs) for S/MIME or other purposes.</p>
+      <p><strong>Organization Responsibilities:</strong> Issuing, managing, revoking certificates, defining trust policies, and ensuring policy compliance.</p>
+      <p><strong>Media Routes Inc. Role:</strong> We do NOT act as a certificate authority, verify certificates, guarantee trustworthiness, manage revocation, or validate identity claims.</p>
+
+      <h3>10.2 Trust Decisions</h3>
+      <p>All trust decisions remain the responsibility of individual users, their organization (where applicable), and the certificate recipient.</p>
+
+      <h3>10.3 Certificate Validation</h3>
+      <p>Users and organizations must verify certificate chains, check revocation status, validate policies, and assess certificate authority trustworthiness.</p>
+
+      <h3>10.4 No Liability</h3>
+      <p>Media Routes Inc. is NOT liable for fraudulent certificates, compromised CAs, certificate validation failures, or reliance on untrusted certificates.</p>
+    </section>
+
+    <section id="scomm-connect">
+      <h2>11. SComm Connect and Peer-to-Peer Connectivity</h2>
+      <h3>11.1 Service Description</h3>
+      <p>SComm Connect enables direct or relayed connectivity between endpoints using WebRTC protocols, peer-to-peer connections, DTLS-SRTP encryption, NAT traversal techniques, and relay fallback when P2P fails.</p>
+
+      <h3>11.2 How It Works</h3>
+      <p><strong>Connection Establishment:</strong> User authenticates, access controls are verified, SDP offers/answers are exchanged, and optimal connection path is determined.</p>
+      <p><strong>Data Transfer:</strong> Direct P2P when possible (most common), through relay servers when necessary, with end-to-end encryption preventing server inspection.</p>
+
+      <h3>11.3 User Responsibilities</h3>
+      <p><strong>Endpoint Security:</strong> Securing devices running Provider Nodes, implementing access controls, and configuring firewalls appropriately.</p>
+      <p><strong>Peer Authentication:</strong> Verifying identity of connection peers, ensuring trust in remote endpoints, and managing access control lists.</p>
+      <p><strong>Traffic Legality:</strong> Ensuring transmitted content is lawful and complying with applicable regulations.</p>
+
+      <h3>11.4 Media Routes Inc. Role</h3>
+      <p>We facilitate connection establishment, provide relay services when needed, manage access control infrastructure, and do NOT monitor or store payload content.</p>
+
+      <h3>11.5 No Guarantees</h3>
+      <p>We do NOT guarantee successful connection establishment, continuity, specific bandwidth, protocol compatibility, or availability at all times.</p>
+
+      <h3>11.6 Prohibited Uses</h3>
+      <p>You must NOT use SComm Connect to bypass restrictions, evade access controls, relay unlawful traffic, access unauthorized systems, or engage in prohibited activities.</p>
+    </section>
+
+    <section id="relay-services">
+      <h2>12. Relay Services</h2>
+      <h3>12.1 When Relay is Used</h3>
+      <p>Relay servers are used only when direct P2P connection is not possible due to NAT configurations, firewall rules, network topology restrictions, or ISP blocking.</p>
+
+      <h3>12.2 How Relay Works</h3>
+      <p><strong>Data Handling:</strong> Encrypted data is received, remains encrypted (DTLS-SRTP), and is immediately forwarded to destination. No persistent storage of payload content. Metadata logged for billing only.</p>
+      <p><strong>Geographic Distribution:</strong> Relay servers in multiple locations with automatic selection of optimal relay, which may involve international routing.</p>
+
+      <h3>12.3 Relay Limitations</h3>
+      <p><strong>We Do NOT:</strong> Decrypt or inspect data content, store transmitted data, perform deep packet inspection, monitor communication content, or share data with third parties.</p>
+      <p><strong>We Do:</strong> Log metadata for billing (party IDs, data volume), monitor service health, implement rate limiting, and comply with legal obligations.</p>
+
+      <h3>12.4 Usage-Based Billing</h3>
+      <p>When relay is used, data volume is measured and recorded, with billing according to plan and usage reports available to Paying Party. Billing metadata retained per legal requirements (7 years).</p>
+
+      <h3>12.5 Fair Use</h3>
+      <p>Relay services are subject to fair use policies. Excessive usage may be throttled, abuse may result in service restriction, and prohibited content may result in termination.</p>
+    </section>
+
+    <section id="billing-subscriptions">
+      <h2>13. Billing, Subscriptions, and Payments</h2>
+      <h3>13.1 Free vs. Paid Services</h3>
+      <p><strong>Free Services:</strong> Basic features available at no cost, subject to modification or termination.</p>
+      <p><strong>Paid Services:</strong> Require active subscription for premium features and enhanced support.</p>
+
+      <h3>13.2 Subscription Plans</h3>
+      <p>Plans may include monthly or annual billing cycles, usage-based pricing, per-seat pricing, feature-based tiers, or enterprise custom pricing.</p>
+
+      <h3>13.3 Payment Processing</h3>
+      <p><strong>Payment Methods:</strong> Credit/debit cards (via Stripe), PayPal, or other methods as made available.</p>
+      <p><strong>Payment Authorization:</strong> By subscribing, you authorize recurring charges at the billing interval, storage of payment information, automatic renewal unless canceled, and price changes with reasonable notice.</p>
+
+      <h3>13.4 Billing Information</h3>
+      <p>You must provide accurate billing name and address, valid payment method, current contact information, and tax identification (if applicable).</p>
+
+      <h3>13.5 Invoices and Receipts</h3>
+      <p>Invoices are available in billing portal, email receipts sent for transactions, retained for 7 years per legal requirements, and available for download at any time.</p>
+
+      <h3>13.6 Price Changes</h3>
+      <p>Media Routes Inc. may change subscription prices, modify billing structures, and adjust rates with 30 days notice for existing subscribers, or immediately for new subscribers.</p>
+
+      <h3>13.7 Taxes and Fees</h3>
+      <p>You are responsible for all applicable taxes (sales, VAT, GST), government fees, currency conversion fees, and payment processor fees (where applicable).</p>
+
+      <h3>13.8 Refunds</h3>
+      <p><strong>General Policy:</strong> Fees are generally non-refundable, no refunds for partial periods, no refunds for early cancellation.</p>
+      <p><strong>Exceptions:</strong> Service outages exceeding SLA (enterprise plans), billing errors, fraudulent charges, and legal requirements.</p>
+
+      <h3>13.9 Payment Failures</h3>
+      <p>If payment fails, service may be suspended, account downgraded to free tier, or terminated after repeated failures.</p>
+
+      <h3>13.10 Subscription Renewal</h3>
+      <p>Subscriptions auto-renew unless canceled. Renewal charges applied at billing interval. Cancel anytime before renewal date with no refunds for unused time.</p>
+
+      <h3>13.11 Cancellation</h3>
+      <p>You may cancel through the billing portal, email (billing@scomm.ai), effective at end of current billing period with no refunds for unused time. Access continues until period end.</p>
+    </section>
+
+    <section id="multi-user-accounts">
+      <h2>14. Multi-User Accounts (Paying Party and Using Parties)</h2>
+      <h3>14.1 Paying Party</h3>
+      <p>The Paying Party holds the subscription, is responsible for payment, manages Using Party access, receives billing and invoices, and controls account settings.</p>
+
+      <h3>14.2 Using Parties</h3>
+      <p>Using Parties are authorized by Paying Party, use services under Paying Party's subscription, are subject to these Terms, and may have access restricted or revoked by Paying Party.</p>
+
+      <h3>14.3 Adding Using Parties</h3>
+      <p>Paying Party may add multiple Using Parties (per plan limits), provide SSO identifiers or login IDs, set access permissions, monitor usage (if enabled), and remove Using Parties at any time.</p>
+
+      <h3>14.4 Using Party Data</h3>
+      <p>For Using Parties, we collect SSO identifiers, login IDs, email addresses, association with Paying Party, and usage data (if applicable).</p>
+
+      <h3>14.5 Paying Party Responsibilities</h3>
+      <p>Paying Party is responsible for authorizing appropriate Using Parties, ensuring compliance with Terms, managing access, all charges incurred, and Using Party violations.</p>
+
+      <h3>14.6 Using Party Responsibilities</h3>
+      <p>Using Parties must comply with these Terms, use Service only as authorized, not share access credentials, respect Paying Party policies, and notify Paying Party of issues.</p>
+
+      <h3>14.7 Termination Effects</h3>
+      <p>If Paying Party terminates, all Using Parties lose access and Using Party data is deleted per retention policy. If Using Party leaves, only that Using Party's access is removed.</p>
+    </section>
+
+    <section id="user-responsibilities">
+      <h2>15. User Responsibilities and Acceptable Use</h2>
+      <h3>15.1 General Conduct</h3>
+      <p>You must use the Service in compliance with all applicable laws, these Terms, respecting others' rights, without causing harm, and ethically and responsibly.</p>
+
+      <h3>15.2 Account Responsibilities</h3>
+      <p>You are responsible for maintaining account security, all account activity, protecting login credentials, notifying us of unauthorized access, and keeping account information current.</p>
+
+      <h3>15.3 Device Security</h3>
+      <p>You must secure devices used to access Service, keep operating systems updated, use antivirus/antimalware software, implement access controls, and protect against unauthorized physical access.</p>
+
+      <h3>15.4 Data Backup</h3>
+      <p>You are solely responsible for backing up local data, preserving important emails, exporting data before termination, and maintaining offline copies.</p>
+
+      <h3>15.5 Third-Party Compliance</h3>
+      <p>You must comply with terms of email providers, identity providers, operating system vendors, app stores, and other integrated services.</p>
+
+      <h3>15.6 Legal Compliance</h3>
+      <p>You must comply with laws regarding privacy, communications, export controls, intellectual property, electronic transactions, record retention, and anti-spam/anti-fraud.</p>
+    </section>
+
+    <section id="prohibited-activities">
+      <h2>16. Prohibited Activities</h2>
+      <p>You must NOT use the Service to:</p>
+      <h3>16.1 Illegal Activities</h3>
+      <ul>
+        <li>Engage in any unlawful activity or violate laws</li>
+        <li>Facilitate criminal activity or evade legal obligations</li>
+        <li>Violate court orders or legal processes</li>
+      </ul>
+
+      <h3>16.2 Harmful Content</h3>
+      <ul>
+        <li>Transmit malware, viruses, or malicious code</li>
+        <li>Distribute ransomware, spyware, or phishing attacks</li>
+        <li>Send spam or unsolicited bulk email</li>
+        <li>Distribute child exploitation material or promote violence/terrorism</li>
+        <li>Harass, threaten, or intimidate others</li>
+      </ul>
+
+      <h3>16.3 Fraud and Deception</h3>
+      <ul>
+        <li>Engage in fraudulent activities or impersonate others</li>
+        <li>Use fake or stolen identities</li>
+        <li>Misrepresent affiliation or conduct financial fraud/scams</li>
+      </ul>
+
+      <h3>16.4 Unauthorized Access</h3>
+      <ul>
+        <li>Attempt unauthorized access to accounts, systems, or networks</li>
+        <li>Bypass authentication or security measures</li>
+        <li>Probe, scan, or test vulnerabilities</li>
+        <li>Use stolen credentials or tokens</li>
+      </ul>
+
+      <h3>16.5 Service Disruption</h3>
+      <ul>
+        <li>Interfere with Service operation or infrastructure</li>
+        <li>Launch denial-of-service attacks or overload systems</li>
+        <li>Exploit vulnerabilities to cause harm</li>
+      </ul>
+
+      <h3>16.6 Intellectual Property Violations</h3>
+      <ul>
+        <li>Infringe copyrights, trademarks, or patents</li>
+        <li>Distribute pirated content or violate licensing agreements</li>
+      </ul>
+
+      <h3>16.7 Reverse Engineering</h3>
+      <ul>
+        <li>Reverse engineer the Service (except where legally permitted)</li>
+        <li>Decompile, disassemble, or extract source code</li>
+        <li>Circumvent technical protection measures</li>
+      </ul>
+
+      <h3>16.8 Abuse and Exploitation</h3>
+      <ul>
+        <li>Exploit the Service for competitive purposes</li>
+        <li>Scrape or harvest data without permission</li>
+        <li>Use unauthorized tools or scripts</li>
+        <li>Resell or sublicense Service without authorization</li>
+      </ul>
+
+      <h3>16.9 Privacy Violations</h3>
+      <ul>
+        <li>Collect personal data without consent</li>
+        <li>Violate others' privacy rights</li>
+        <li>Share confidential information without authorization</li>
+        <li>Conduct unauthorized surveillance or dox private information</li>
+      </ul>
+
+      <h3>16.10 Misuse of Encryption</h3>
+      <ul>
+        <li>Use encryption to facilitate illegal activity</li>
+        <li>Violate export controls on cryptographic software</li>
+        <li>Circumvent lawful access requirements</li>
       </ul>
     </section>
 
-    <section aria-labelledby="compliance-with-laws">
-      <h2 id="compliance-with-laws">16. Compliance with Laws and Export Controls</h2>
-      <p>You are solely responsible for complying with all laws, rules, and regulations applicable to your use of the Service, including laws relating to privacy, communications, records retention, surveillance, lawful access, sanctions, import controls, export controls, and the use of cryptography.</p>
-      <p>You must not use, export, re-export, transfer, or make available the Service in violation of applicable law. Media Routes Inc. makes no representation that the Service is appropriate or lawful in every jurisdiction.</p>
+    <section id="third-party-services">
+      <h2>17. Third-Party Services and Integration</h2>
+      <h3>17.1 Third-Party Dependencies</h3>
+      <p>The Service integrates with:</p>
+      <ul>
+        <li><strong>Email Providers:</strong> Gmail, Google Workspace, Microsoft 365, Outlook.com, IMAP servers</li>
+        <li><strong>Identity Providers:</strong> Google, Microsoft, and other OAuth providers</li>
+        <li><strong>Payment Processors:</strong> Stripe, PayPal</li>
+        <li><strong>Infrastructure Providers:</strong> CloudFlare, cloud hosting services, domain registrars</li>
+      </ul>
+
+      <h3>17.2 Third-Party Terms</h3>
+      <p>Your use of Third-Party Services is subject to their terms of service, privacy policies, acceptable use policies, and pricing.</p>
+
+      <h3>17.3 No Control Over Third Parties</h3>
+      <p>Media Routes Inc. does NOT control third-party services and is NOT responsible for their availability, security, compatibility, or actions.</p>
+
+      <h3>17.4 Third-Party Changes</h3>
+      <p>Third parties may change their terms, modify services, alter APIs/protocols, change pricing, or restrict service. Such changes may affect your use of our Service.</p>
+
+      <h3>17.5 Third-Party Data Practices</h3>
+      <p>Third parties may collect and use your data under different privacy practices, share data with others, be subject to different laws, and have different security standards. Review third-party privacy policies.</p>
+
+      <h3>17.6 No Endorsement</h3>
+      <p>Integration with third parties does NOT constitute endorsement, partnership, affiliation, or guarantee of quality or security.</p>
     </section>
 
-    <section aria-labelledby="termination">
-      <h2 id="termination">17. Termination</h2>
-      <p>Media Routes Inc. may suspend, restrict, or terminate your access to the Service at any time, with or without notice, if it reasonably believes that you have violated these Terms, created risk for the Service or others, or where suspension or termination is otherwise necessary for legal, security, or operational reasons.</p>
-      <p>You may stop using the Service at any time. Sections of these Terms that by their nature should survive termination will survive, including provisions concerning intellectual property, disclaimers, liability limitations, indemnification, governing law, and dispute resolution.</p>
+    <section id="enterprise-and-organization-use">
+      <h2>18. Enterprise and Organization Use</h2>
+      <h3>18.1 Organizational Deployment</h3>
+      <p>Organizations may deploy the Service with centrally managed configuration, organization-wide policies, custom security requirements, internal certificate authorities, and managed identity systems.</p>
+
+      <h3>18.2 Organization Control</h3>
+      <p><strong>Organization May:</strong> Provision and manage your access, set security policies, monitor usage, restrict features, revoke access, define retention policies, and implement custom trust stores.</p>
+
+      <h3>18.3 Organization Responsibilities</h3>
+      <p>Organizations are responsible for internal governance, employee authorization, security policy implementation, data protection, legal compliance, certificate authority management, and internal support.</p>
+
+      <h3>18.4 User vs. Organization Rights</h3>
+      <p>Organization rights may supersede user preferences, access usage data, restrict features, and termination of employment may result in access loss.</p>
+
+      <h3>18.5 Enterprise Agreements</h3>
+      <p>Organizations may enter into custom enterprise agreements, service level agreements (SLAs), data processing agreements (DPAs), and business associate agreements. Contact sales@scomm.ai for enterprise inquiries.</p>
     </section>
 
-    <section aria-labelledby="privacy">
-      <h2 id="privacy">18. Privacy</h2>
-      <p>Your use of the Service is also subject to the applicable Privacy Policy made available by Media Routes Inc. To the extent there is a conflict between these Terms and the Privacy Policy regarding data handling disclosures, the Privacy Policy will govern with respect to privacy-specific matters, and these Terms will govern with respect to contractual use of the Service.</p>
+    <section id="intellectual-property">
+      <h2>19. Intellectual Property Rights</h2>
+      <h3>19.1 Our Intellectual Property</h3>
+      <p>Media Routes Inc. and its licensors own all rights in:</p>
+      <ul>
+        <li><strong>Software:</strong> Desktop, mobile, web applications, server code, APIs, and updates</li>
+        <li><strong>Content:</strong> Website content, documentation, marketing materials, training resources</li>
+        <li><strong>Intellectual Property:</strong> Trademarks, logos, patents, trade secrets, and copyrights</li>
+      </ul>
+
+      <h3>19.2 Limited License</h3>
+      <p>Subject to these Terms, we grant you a limited, revocable, non-exclusive, non-transferable, non-sublicensable license to access and use the Service for its intended purpose.</p>
+
+      <h3>19.3 Restrictions</h3>
+      <p>You may NOT copy, modify, distribute, remove proprietary notices, use our trademarks without permission, or claim ownership.</p>
+
+      <h3>19.4 Open Source</h3>
+      <p>Certain components may be subject to open source licenses listed in application about/credits sections, which govern those specific components.</p>
+
+      <h3>19.5 Feedback</h3>
+      <p>If you provide feedback or suggestions, you grant us unlimited right to use them without compensation or obligation to you.</p>
     </section>
 
-    <section aria-labelledby="changes-to-terms">
-      <h2 id="changes-to-terms">19. Changes to Terms</h2>
-      <p>Media Routes Inc. may revise these Terms from time to time. Updated Terms become effective when posted or otherwise communicated, unless a later effective date is stated. By continuing to use the Service after updated Terms become effective, you agree to the revised Terms.</p>
+    <section id="user-content">
+      <h2>20. User Content and Data Ownership</h2>
+      <h3>20.1 Your Data</h3>
+      <p>You retain ownership of your email content, cryptographic keys, uploaded data, account information, and configuration preferences.</p>
+
+      <h3>20.2 License to Us</h3>
+      <p>You grant Media Routes Inc. a limited license to store data necessary for service operation, process data as described in Privacy Policy, display content back to you, perform backups, and comply with legal obligations.</p>
+
+      <h3>20.3 Your Responsibilities</h3>
+      <p>You represent and warrant that you own or have rights to your data, your data doesn't violate others' rights or laws, and you have necessary permissions and consents.</p>
+
+      <h3>20.4 Prohibited Content</h3>
+      <p>Your data must not contain illegal content, infringing materials, malicious code, unauthorized confidential information, or material violating these Terms.</p>
     </section>
 
-    <section aria-labelledby="governing-law-and-jurisdiction">
-      <h2 id="governing-law-and-jurisdiction">20. Governing Law and Jurisdiction</h2>
-      <p>These Terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein, without regard to conflict of laws principles.</p>
-      <p>You agree that any dispute, claim, or controversy arising out of or relating to these Terms or the Service shall be brought exclusively in the courts of Ontario, Canada, and you consent to the jurisdiction and venue of those courts.</p>
+    <section id="api-access">
+      <h2>21. API Access and Rate Limits</h2>
+      <h3>21.1 API Availability</h3>
+      <p>APIs may be made available for programmatic access, third-party integration, workflow automation, and custom implementations.</p>
+
+      <h3>21.2 API Terms</h3>
+      <p>API use is subject to these Terms, separate API documentation, rate limits, authentication requirements, and acceptable use policies.</p>
+
+      <h3>21.3 Rate Limits</h3>
+      <p>We may implement request limits, bandwidth limitations, concurrent connection limits, and feature-specific quotas. Exceeding limits may result in throttling, request rejection, service suspension, or additional fees.</p>
+
+      <h3>21.4 API Changes</h3>
+      <p>We may modify API endpoints, change behavior, deprecate versions, and require updated authentication with reasonable notice where feasible.</p>
     </section>
 
-    <section aria-labelledby="contact-information">
-      <h2 id="contact-information">21. Contact Information</h2>
-      <address>
-        <p><strong>Media Routes Inc.</strong></p>
-        <p>Province of Ontario, Canada</p>
-        <p>Email: privacy@scomm.ca</p>
-        <p>Address: 86-50 Burnhamthorpe Road W.
-		Mississauga, ON L5B 3C2, Canada</p>
-      </address>
+    <section id="service-availability">
+      <h2>22. Service Availability and Modifications</h2>
+      <h3>22.1 Service Availability</h3>
+      <p><strong>Availability Targets:</strong> We strive for high availability but guarantee no 100% uptime. Maintenance windows may be scheduled or occur without notice.</p>
+      <p><strong>Exclusions:</strong> Third-party service outages, internet connectivity issues, force majeure events, and user-caused issues.</p>
+
+      <h3>22.2 Service Modifications</h3>
+      <p>We may add, modify, or remove features, update interfaces, change underlying technology, improve performance/security, and modify service architecture.</p>
+
+      <h3>22.3 Notice of Changes</h3>
+      <p><strong>Major Changes:</strong> Reasonable advance notice (typically 30 days), email or in-app notification, and opportunity to review.</p>
+      <p><strong>Minor Changes:</strong> May be implemented without notice (bug fixes, security updates, performance improvements).</p>
+
+      <h3>22.4 Beta Features</h3>
+      <p>Beta or experimental features are provided as-is without warranty, may be modified or discontinued, and may have bugs or limitations.</p>
     </section>
+
+    <section id="data-retention">
+      <h2>23. Data Retention and Deletion</h2>
+      <h3>23.1 Data We Retain</h3>
+      <p><strong>Account Data:</strong> Active accounts during relationship, inactive accounts 2 years, deleted accounts 30 days then permanently deleted.</p>
+      <p><strong>Billing Data:</strong> Transaction records 7 years (legal requirement), payment tokens until subscription ends.</p>
+      <p><strong>Cryptographic Keys:</strong> Public keys until user deletes, encrypted private key backups until user deletes.</p>
+      <p><strong>Logs and Metadata:</strong> Server logs 7-90 days depending on type, connection metadata 90 days, relay billing metadata 7 years.</p>
+
+      <h3>23.2 Data Deletion</h3>
+      <p>You may request deletion of your entire account, specific data elements, device associations, or Using Party links.</p>
+
+      <h3>23.3 Legal Retention</h3>
+      <p>Some data must be retained for billing records, legal compliance, fraud prevention, and dispute resolution. After legal retention periods, data is deleted or anonymized.</p>
+
+      <h3>23.4 Backup Deletion</h3>
+      <p>Deleted data is removed from production systems within 30 days and backup systems within 90 days.</p>
+    </section>
+
+    <section id="export-controls">
+      <h2>24. Export Controls and Compliance</h2>
+      <h3>24.1 Export Laws</h3>
+      <p>The Service may be subject to export control laws, sanctions, embargoes, import restrictions, and technology transfer regulations.</p>
+
+      <h3>24.2 Your Responsibilities</h3>
+      <p>You represent and warrant that you are not in an embargoed country, not on restricted party lists, and will not export the Service in violation of law or use it for prohibited end uses.</p>
+
+      <h3>24.3 Prohibited Destinations</h3>
+      <p>You may not use the Service if you are in or a national of embargoed countries (Cuba, Iran, North Korea, Syria, Crimea), countries under Canadian sanctions, or other restricted jurisdictions.</p>
+
+      <h3>24.4 Cryptography Restrictions</h3>
+      <p>The Service contains cryptography subject to export controls, import restrictions, and use restrictions in certain jurisdictions. You are responsible for compliance with local laws regarding cryptography.</p>
+
+      <h3>24.5 Our Rights</h3>
+      <p>We may restrict Service availability in certain countries, require export compliance verification, terminate accounts in restricted locations, and modify Service to comply with laws.</p>
+    </section>
+
+    <section id="privacy">
+      <h2>25. Privacy and Data Protection</h2>
+      <h3>25.1 Privacy Policy</h3>
+      <p>Your use of the Service is governed by our Privacy Policy, available at https://scomm.ai/privacy.</p>
+
+      <h3>25.2 Data Processing</h3>
+      <p>We process your personal data as described in the Privacy Policy, including what data we collect, how we use it, who we share it with, how long we retain it, and your privacy rights.</p>
+
+      <h3>25.3 International Transfers</h3>
+      <p>Your data may be transferred to and processed in Canada (primary storage), United States (cloud services, relay servers), European Union (relay servers), and other countries where infrastructure is located.</p>
+
+      <h3>25.4 Your Rights</h3>
+      <p>You have rights to access, correct, delete, export your data, object to processing, and file complaints with regulators. See Privacy Policy for details on exercising rights.</p>
+
+      <h3>25.5 Data Protection Contact</h3>
+      <p>Privacy inquiries: privacy@scomm.ai | Data Protection Officer: dpo@scomm.ai</p>
+    </section>
+
+    <section id="no-warranty">
+      <h2>26. Warranties Disclaimer</h2>
+      <h3>26.1 As-Is Basis</h3>
+      <p><strong>THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND.</strong></p>
+
+      <h3>26.2 Disclaimer of Warranties</h3>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, MEDIA ROUTES INC. DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING:</p>
+      <ul>
+        <li>Merchantability, fitness for a particular purpose, non-infringement, title, and quality</li>
+        <li>Uninterrupted operation, error-free operation, timely operation, and secure operation</li>
+        <li>Compatibility with devices, third-party services, future systems, and interoperability</li>
+        <li>Protection from all threats, invulnerability to attack, absolute encryption security, and prevention of all breaches</li>
+      </ul>
+
+      <h3>26.3 No Guarantee</h3>
+      <p>We do NOT warrant that the Service will meet your requirements, be available at all times, provide accurate results, correct defects, or be free from harmful components. Encryption is not guaranteed unbreakable, and data may be lost.</p>
+
+      <h3>26.4 Your Assumption of Risk</h3>
+      <p>You use the Service at your own risk, are responsible for results, should not rely solely on it for critical functions, should maintain independent backups, and should verify important information independently.</p>
+
+      <h3>26.5 No Advice</h3>
+      <p>Nothing in the Service constitutes professional, legal, or security advice. Consult appropriate professionals as needed.</p>
+    </section>
+
+    <section id="limitation-of-liability">
+      <h2>27. Limitation of Liability</h2>
+      <h3>27.1 Maximum Liability</h3>
+      <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE TOTAL LIABILITY OF MEDIA ROUTES INC., ITS DIRECTORS, OFFICERS, EMPLOYEES, CONTRACTORS, AFFILIATES, LICENSORS, AND SERVICE PROVIDERS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE GREATER OF:</strong></p>
+      <ul>
+        <li>(A) THE AMOUNT YOU PAID TO MEDIA ROUTES INC. IN THE 12 MONTHS PRECEDING THE CLAIM; OR</li>
+        <li>(B) ONE HUNDRED CANADIAN DOLLARS (CAD $100).</li>
+      </ul>
+
+      <h3>27.2 Exclusion of Damages</h3>
+      <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, MEDIA ROUTES INC. SHALL NOT BE LIABLE FOR:</strong></p>
+      <ul>
+        <li><strong>Direct Damages:</strong> Loss of data, access, downtime, service interruption</li>
+        <li><strong>Indirect Damages:</strong> Lost profits, revenue, savings, business opportunities, goodwill, reputational harm</li>
+        <li><strong>Consequential Damages:</strong> Business interruption, alternative service costs, recovery costs, investigation costs</li>
+        <li><strong>Specific Circumstances:</strong> Email access issues, third-party failures, encryption/key failures, security breaches, account compromise, data corruption, relay issues, connection failures, payment errors, software bugs</li>
+      </ul>
+
+      <h3>27.3 Apply to All Claims</h3>
+      <p>These limitations apply to all claims based on contract, tort (including negligence), strict liability, warranty, statutory claims, or any other legal theory.</p>
+
+      <h3>27.4 Knowledge of Possibility</h3>
+      <p>These limitations apply even if we were advised of the possibility of damages, damages were foreseeable, or limited remedy fails of essential purpose.</p>
+
+      <h3>27.5 Jurisdictional Variations</h3>
+      <p>Some jurisdictions do not allow exclusion of certain warranties or limitation of liability. In such jurisdictions, disclaimers and liability limits are applied to the maximum extent permitted.</p>
+    </section>
+
+    <section id="indemnification">
+      <h2>28. Indemnification</h2>
+      <h3>28.1 Your Indemnification Obligation</h3>
+      <p>You agree to defend, indemnify, and hold harmless Media Routes Inc., its directors, officers, employees, contractors, affiliates, licensors, and service providers from any claims, actions, demands, proceedings, liabilities, damages, judgments, settlements, penalties, losses, costs, and expenses (including reasonable attorneys' fees).</p>
+
+      <h3>28.2 Covered Claims</h3>
+      <p><strong>Arising out of or relating to:</strong></p>
+      <ul>
+        <li>Your use of the Service or violation of these Terms</li>
+        <li>Your violation of applicable laws or third-party rights</li>
+        <li>Your User Content, data, or email communications</li>
+        <li>Your cryptographic key management or conduct</li>
+        <li>Export control violations, encryption misuse, certificate authority mismanagement, SComm Connect abuse, relay service violations, or multi-user account issues</li>
+      </ul>
+
+      <h3>28.3 Defense and Settlement</h3>
+      <p>You must cooperate fully in defense, not settle without our consent, reimburse our costs, and provide timely notice. We may assume exclusive defense and control, require cooperation, and approve settlements.</p>
+
+      <h3>28.4 Survival</h3>
+      <p>This indemnification obligation survives termination of these Terms.</p>
+    </section>
+
+    <section id="dispute-resolution">
+      <h2>29. Dispute Resolution and Arbitration</h2>
+      <h3>29.1 Informal Resolution</h3>
+      <p>Before filing a claim, contact us at legal@scomm.ai, describe the dispute in detail, and allow 30 days for good-faith negotiation to resolve the dispute.</p>
+
+      <h3>29.2 Binding Arbitration</h3>
+      <p>If informal resolution fails, disputes shall be resolved by binding arbitration, except small claims court actions and intellectual property disputes remain available.</p>
+
+      <h3>29.3 Arbitration Rules</h3>
+      <p>Arbitration shall be conducted under ADR Institute of Canada rules, in Ontario, Canada, in English language, by single arbitrator (unless parties agree otherwise). Decision is final and binding.</p>
+
+      <h3>29.4 Costs</h3>
+      <p>Each party bears own legal fees. Arbitrator fees split equally unless arbitrator orders otherwise. Prevailing party may recover costs if permitted by law.</p>
+
+      <h3>29.5 Class Action Waiver</h3>
+      <p><strong>YOU AGREE THAT:</strong> Disputes will be resolved individually, no class actions or class arbitrations, no consolidation with other claims. If class action waiver is unenforceable, arbitration provision is void.</p>
+
+      <h3>29.6 Exceptions</h3>
+      <p>Nothing prevents small claims court filing, seeking injunctive relief, protecting intellectual property, or enforcing arbitration awards in court.</p>
+    </section>
+
+    <section id="termination">
+      <h2>30. Termination and Suspension</h2>
+      <h3>30.1 Termination by You</h3>
+      <p>You may terminate by canceling your subscription in billing portal, emailing termination request to support@scomm.ai, uninstalling all applications, or ceasing use.</p>
+
+      <h3>30.2 Termination by Us</h3>
+      <p>We may suspend, restrict, or terminate your access immediately, with or without notice, if:</p>
+      <ul>
+        <li><strong>Violations:</strong> You violate these Terms, engage in prohibited activities, abuse the Service, or harm other users</li>
+        <li><strong>Security:</strong> Your account is compromised, used for attacks, or security threats are detected</li>
+        <li><strong>Legal:</strong> Required by law, legal process, regulations, or government request</li>
+        <li><strong>Non-Payment:</strong> Payment failures, chargebacks, disputes, or fraudulent payment activity</li>
+        <li><strong>Operational:</strong> Service discontinuation, force majeure, or business reasons</li>
+      </ul>
+
+      <h3>30.3 Effect on Using Parties</h3>
+      <p>If Paying Party account is terminated, all Using Parties lose access immediately, Using Party data is deleted per retention policy, and no refunds to Using Parties.</p>
+
+      <h3>30.4 No Liability for Termination</h3>
+      <p>We are not liable for losses from termination or suspension, inability to access Service, data loss, or disruption to operations.</p>
+    </section>
+
+    <section id="effect-of-termination">
+      <h2>31. Effect of Termination</h2>
+      <h3>31.1 Access Termination</h3>
+      <p>Upon termination, Service access immediately revoked, account credentials become invalid, subscriptions canceled (no refunds), and Using Parties lose access.</p>
+
+      <h3>31.2 Data Deletion</h3>
+      <p>After termination, account data deleted per retention policy (typically 30 days), public keys removed, device associations deleted, and backups removed from systems (within 90 days).</p>
+
+      <h3>31.3 Data Retention</h3>
+      <p>We may retain billing records (7 years, legal requirement), records needed for legal compliance, fraud prevention data, and dispute-related information.</p>
+
+      <h3>31.4 Outstanding Obligations</h3>
+      <p>Termination does NOT relieve you of outstanding payment obligations, liabilities incurred before termination, indemnification obligations, confidentiality obligations, or obligations that should survive.</p>
+
+      <h3>31.5 Sections That Survive</h3>
+      <p>The following sections survive termination: Intellectual Property Rights, User Content and Data Ownership, Warranties Disclaimer, Limitation of Liability, Indemnification, Dispute Resolution, Governing Law, Effect of Termination, and any provisions that should survive.</p>
+    </section>
+
+    <section id="force-majeure">
+      <h2>32. Force Majeure</h2>
+      <h3>32.1 Excused Performance</h3>
+      <p>Media Routes Inc. is not liable for failure or delay in performance caused by events beyond our reasonable control, including:</p>
+      <ul>
+        <li><strong>Natural Events:</strong> Acts of God, earthquakes, floods, fires, severe weather, pandemics</li>
+        <li><strong>Infrastructure:</strong> Internet outages, power outages, telecommunications failures, data center outages</li>
+        <li><strong>Human Events:</strong> War, terrorism, civil unrest, government actions, strikes, sabotage</li>
+        <li><strong>Technical Events:</strong> Cyberattacks, DDoS, third-party failures, hardware failures, software defects</li>
+      </ul>
+
+      <h3>32.2 Mitigation</h3>
+      <p>During force majeure, we will use reasonable efforts to mitigate impact, notify users when feasible, and restore service as soon as possible.</p>
+
+      <h3>32.3 Extended Force Majeure</h3>
+      <p>If force majeure continues 30+ days, either party may terminate with notice. No liability for termination, and refunds at our discretion.</p>
+    </section>
+
+    <section id="assignment">
+      <h2>33. Assignment</h2>
+      <h3>33.1 Assignment by Us</h3>
+      <p>Media Routes Inc. may assign or transfer these Terms to affiliates, successors, in connection with mergers, acquisitions, or asset sales, with reasonable notice.</p>
+
+      <h3>33.2 Assignment by You</h3>
+      <p>You may NOT assign or transfer these Terms, your account, or your rights/obligations without our prior written consent. Attempted assignment without consent is void.</p>
+
+      <h3>33.3 Binding on Successors</h3>
+      <p>These Terms bind and benefit parties, their successors, permitted assigns, and legal representatives.</p>
+    </section>
+
+    <section id="severability">
+      <h2>34. Severability</h2>
+      <h3>34.1 Invalid Provisions</h3>
+      <p>If any provision is found invalid, illegal, unenforceable, or void, only that provision is affected, and remaining provisions remain in full force. Invalid provision is modified to minimum extent necessary or removed if modification not possible.</p>
+
+      <h3>34.2 Intent Preservation</h3>
+      <p>Any modification or removal shall preserve original intent to maximum extent possible and maintain economic balance of agreement.</p>
+    </section>
+
+    <section id="entire-agreement">
+      <h2>35. Entire Agreement</h2>
+      <h3>35.1 Complete Agreement</h3>
+      <p>These Terms, together with Privacy Policy, any additional terms for specific features, and enterprise agreements (if applicable), constitute the entire agreement regarding the Service.</p>
+
+      <h3>35.2 Supersedes Prior Agreements</h3>
+      <p>These Terms supersede all prior agreements, understandings, representations, and communications regarding the Service.</p>
+
+      <h3>35.3 Modifications</h3>
+      <p>No modification or amendment is valid unless in writing and signed by authorized representative of Media Routes Inc., except as provided in Section 37 (Changes to Terms).</p>
+    </section>
+
+    <section id="waiver">
+      <h2>36. Waiver</h2>
+      <h3>36.1 No Waiver by Silence</h3>
+      <p>Our failure to enforce any provision does NOT constitute waiver of that provision, waiver of future enforcement, waiver of any other provision, or modification of these Terms.</p>
+
+      <h3>36.2 Effective Waiver</h3>
+      <p>Waiver is effective only if in writing, signed by authorized representative, and specifically references the waived provision.</p>
+
+      <h3>36.3 Rights Cumulative</h3>
+      <p>Our rights and remedies are cumulative, not exclusive, may be exercised concurrently or separately, and are not diminished by other rights.</p>
+    </section>
+
+    <section id="changes-to-terms">
+      <h2>37. Changes to Terms</h2>
+      <h3>37.1 Right to Modify</h3>
+      <p>Media Routes Inc. reserves the right to modify these Terms to reflect changes in Services, legal or regulatory requirements, business practices, security enhancements, and user feedback.</p>
+
+      <h3>37.2 Notice of Changes</h3>
+      <p><strong>Material Changes:</strong> Email notification, in-app notification, website banner. Effective 30 days after notice (or as required by law).</p>
+      <p><strong>Non-Material Changes:</strong> Updated "Last Updated" date, may be effective immediately with reasonable opportunity to review.</p>
+
+      <h3>37.3 Acceptance of Changes</h3>
+      <p>Continued use of Service after changes become effective constitutes acceptance of revised Terms.</p>
+
+      <h3>37.4 Rejection of Changes</h3>
+      <p>If you don't agree with changes, stop using Service, cancel subscription, request account deletion, or export your data before termination.</p>
+
+      <h3>37.5 Version History</h3>
+      <p>Previous versions available upon request by emailing legal@scomm.ai with subject "Terms of Service Version History".</p>
+    </section>
+
+    <section id="notices">
+      <h2>38. Notices and Communication</h2>
+      <h3>38.1 To You</h3>
+      <p>We may provide notices via email to registered address, in-app notifications, prominent website notice, push notifications (mobile apps), or billing portal messages.</p>
+
+      <h3>38.2 Electronic Communications</h3>
+      <p>You consent to receive communications electronically. Electronic communications satisfy written notice requirements. You are responsible for checking for notices and keeping email current.</p>
+
+      <h3>38.3 To Us</h3>
+      <p>Notices to Media Routes Inc. must be sent to:</p>
+      <ul>
+        <li><strong>General:</strong> legal@scomm.ai</li>
+        <li><strong>Privacy:</strong> privacy@scomm.ai</li>
+        <li><strong>Security:</strong> security@scomm.ai</li>
+        <li><strong>Billing:</strong> billing@scomm.ai</li>
+        <li><strong>Address:</strong> Media Routes Inc., 86-50 Burnhamthorpe Road W, Mississauga, ON L5B 3C2, Canada</li>
+      </ul>
+
+      <h3>38.4 Effective Date</h3>
+      <p>Notices are effective when sent (email, if deliverable), 5 business days after postmark (mail), or when displayed (in-app).</p>
+    </section>
+
+    <section id="governing-law">
+      <h2>39. Governing Law and Jurisdiction</h2>
+      <h3>39.1 Governing Law</h3>
+      <p>These Terms are governed by and construed in accordance with laws of the Province of Ontario and federal laws of Canada applicable therein, without regard to conflict of laws principles.</p>
+
+      <h3>39.2 Jurisdiction</h3>
+      <p>Subject to Section 29 (Arbitration), any legal action or proceeding shall be brought exclusively in courts of Ontario, Canada. You consent to personal jurisdiction and venue of those courts.</p>
+
+      <h3>39.3 Exceptions</h3>
+      <p>Nothing prevents seeking injunctive relief in any court, protecting intellectual property rights, enforcing arbitration awards, or complying with legal process in other jurisdictions.</p>
+
+      <h3>39.4 International Users</h3>
+      <p>If you access Service from outside Canada, you do so at your own initiative, are responsible for local law compliance, and these Terms still apply with Ontario law governing.</p>
+    </section>
+
+    <section id="contact-information">
+      <h2>40. Contact Information</h2>
+      <h3>40.1 Company Information</h3>
+      <p><strong>Legal Name:</strong> Media Routes Inc.</p>
+      <p><strong>Jurisdiction:</strong> Province of Ontario, Canada</p>
+      <p><strong>Registration:</strong> [Corporate registration number if desired]</p>
+      <p><strong>Address:</strong> 86-50 Burnhamthorpe Road W Mississauga, ON L5B 3C2 Canada</p>
+
+      <h3>40.2 Departmental Contacts</h3>
+      <p><strong>General Support:</strong> Email: support@scomm.ai | Hours: Monday-Friday, 9 AM - 5 PM EST</p>
+      <p><strong>Legal/Terms:</strong> Email: legal@scomm.ai</p>
+      <p><strong>Privacy/Data Protection:</strong> Email: privacy@scomm.ai | DPO: dpo@scomm.ai</p>
+      <p><strong>Security Issues:</strong> Email: security@scomm.ai (24/7 for critical security issues)</p>
+      <p><strong>Billing/Subscriptions:</strong> Email: billing@scomm.ai</p>
+      <p><strong>Enterprise Sales:</strong> Email: sales@scomm.ai</p>
+      <p><strong>Media/Press:</strong> Email: press@scomm.ai</p>
+
+      <h3>40.3 Website</h3>
+      <p><a href="https://www.scomm.ai/">https://www.scomm.ai/</a></p>
+
+      <h3>40.4 Billing Portal</h3>
+      <p><a href="https://billing.scomm.ai/">https://billing.scomm.ai/</a></p>
+    </section>
+
+    <section class="acknowledgment">
+      <h2>Acknowledgment</h2>
+      <p><strong>BY USING THE SERVICE, YOU ACKNOWLEDGE THAT:</strong></p>
+      <ul>
+        <li>✓ You have read these Terms in their entirety</li>
+        <li>✓ You understand these Terms</li>
+        <li>✓ You agree to be bound by these Terms</li>
+        <li>✓ You have the legal capacity and authority to agree</li>
+        <li>✓ You understand the disclaimers and limitations</li>
+        <li>✓ You accept the risks inherent in using the Service</li>
+        <li>✓ You will comply with all applicable laws</li>
+        <li>✓ You are responsible for your account security</li>
+        <li>✓ You understand the privacy-by-design architecture</li>
+        <li>✓ You understand we do not store email content</li>
+      </ul>
+    </section>
+
     </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 0.9rem;">
+      <p><strong>Effective Date:</strong> February 06, 2026</p>
+      <p><strong>Last Updated:</strong> ___________________</p>
+      <p><strong>Version:</strong> 3.0</p>
+    </footer>
   </div>
 </body>
 </html>
