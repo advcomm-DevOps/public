@@ -8,6 +8,7 @@ on:
       - 'index.html'
       - 'privacy.html'
       - 'ToS.html'
+      - 'delete-account.html'
       - '.github/workflows/deploy.yml'
 
 jobs:
@@ -41,6 +42,9 @@ jobs:
           echo "=== Uploading ToS.html ==="
           scp -i ~/.ssh/id_rsa ToS.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
 
+          echo "=== Uploading delete-account.html ==="
+          scp -i ~/.ssh/id_rsa delete-account.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
+
           echo "✅ Files uploaded to server"
 
       - name: Sync Files to NGINX Container
@@ -51,6 +55,7 @@ jobs:
           podman cp /var/www/public.scomm.ai/index.html mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/privacy.html mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/ToS.html mnm-nginx:/usr/share/nginx/html/
+          podman cp /var/www/public.scomm.ai/delete-account.html mnm-nginx:/usr/share/nginx/html/
           echo "✅ Files synced to NGINX container"
           EOF
 
@@ -58,7 +63,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
           echo "=== Files synced to NGINX container ==="
-          podman exec mnm-nginx ls -lah /usr/share/nginx/html/ | grep -E "index|privacy|ToS|.well-known"
+          podman exec mnm-nginx ls -lah /usr/share/nginx/html/ | grep -E "index|privacy|ToS|delete-account|.well-known"
 
           echo ""
           echo "=== .well-known files ==="
@@ -87,6 +92,7 @@ jobs:
           curl -s -I https://public.scomm.ai/index.html | head -3
           curl -s -I https://public.scomm.ai/privacy.html | head -3
           curl -s -I https://public.scomm.ai/ToS.html | head -3
+          curl -s -I https://public.scomm.ai/delete-account.html | head -3
 
           echo ""
           echo "✅ All deployed content responding"
