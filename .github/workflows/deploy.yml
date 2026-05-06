@@ -9,6 +9,7 @@ on:
       - 'privacy.html'
       - 'ToS.html'
       - 'delete-account.html'
+      - 'EULA.html'
       - '.github/workflows/deploy.yml'
 
 jobs:
@@ -45,6 +46,9 @@ jobs:
           echo "=== Uploading delete-account.html ==="
           scp -i ~/.ssh/id_rsa delete-account.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
 
+          echo "=== Uploading EULA.html ==="
+          scp -i ~/.ssh/id_rsa EULA.html root@${{ secrets.SERVER_HOST }}:/var/www/public.scomm.ai/
+
           echo "✅ Files uploaded to server"
 
       - name: Sync Files to NGINX Container
@@ -54,6 +58,7 @@ jobs:
           podman cp /var/www/public.scomm.ai/.well-known mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/index.html mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/privacy.html mnm-nginx:/usr/share/nginx/html/
+          podman cp /var/www/public.scomm.ai/EULA.html mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/ToS.html mnm-nginx:/usr/share/nginx/html/
           podman cp /var/www/public.scomm.ai/delete-account.html mnm-nginx:/usr/share/nginx/html/
           echo "✅ Files synced to NGINX container"
@@ -91,6 +96,7 @@ jobs:
           echo "=== Testing HTML pages ==="
           curl -s -I https://public.scomm.ai/index.html | head -3
           curl -s -I https://public.scomm.ai/privacy.html | head -3
+          curl -s -I https://public.scomm.ai/EULA.html | head -3
           curl -s -I https://public.scomm.ai/ToS.html | head -3
           curl -s -I https://public.scomm.ai/delete-account.html | head -3
 
