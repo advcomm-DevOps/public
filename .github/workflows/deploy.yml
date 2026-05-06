@@ -51,62 +51,80 @@ jobs:
 
           echo "✅ Files uploaded to server"
 
-      - name: Sync Files to NGINX Container
+      - name: Copy Files to NGINX Root
         run: |
           ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
-          echo "=== Syncing files to NGINX container ==="
-          podman cp /var/www/public.scomm.ai/.well-known mnm-nginx:/usr/share/nginx/html/
-          podman cp /var/www/public.scomm.ai/index.html mnm-nginx:/usr/share/nginx/html/
-          podman cp /var/www/public.scomm.ai/privacy.html mnm-nginx:/usr/share/nginx/html/
-          podman cp /var/www/public.scomm.ai/EULA.html mnm-nginx:/usr/share/nginx/html/
-          podman cp /var/www/public.scomm.ai/ToS.html mnm-nginx:/usr/share/nginx/html/
-          podman cp /var/www/public.scomm.ai/delete-account.html mnm-nginx:/usr/share/nginx/html/
-          echo "✅ Files synced to NGINX container"
+          echo "=== Copying files to NGINX root ==="
+          cp -v /var/www/public.scomm.ai/.well-known/* /usr/share/nginx/html/.well-known/
+          cp -v /var/www/public.scomm.ai/index.html /usr/share/nginx/html/
+          cp -v /var/www/public.scomm.ai/privacy.html /usr/share/nginx/html/
+          cp -v /var/www/public.scomm.ai/ToS.html /usr/share/nginx/html/
+          cp -v /var/www/public.scomm.ai/delete-account.html /usr/share/nginx/html/
+          cp -v /var/www/public.scomm.ai/EULA.html /usr/share/nginx/html/
+          echo "✅ Files copied to NGINX root"
           EOF
 
-      - name: Verify Files in Container
+      - name: Verify Files on Server
         run: |
           ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
-          echo "=== Files synced to NGINX container ==="
-          podman exec mnm-nginx ls -lah /usr/share/nginx/html/ | grep -E "index|privacy|ToS|delete-account|.well-known"
-
-          echo ""
-          echo "=== .well-known files ==="
-          podman exec mnm-nginx ls -lah /usr/share/nginx/html/.well-known/
+          echo "=== Files in NGINX root ==="
+          ls -lh /usr/share/nginx/html/ | grep -E "index|privacy|ToS|delete-account|EULA|well-known"
           EOF
 
       - name: Reload NGINX
         run: |
           ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
           echo "=== Reloading NGINX ==="
-          podman exec mnm-nginx nginx -s reload
-          echo "✅ NGINX reloaded"
+          systemctl reload nginx
+          echo "✅ NGINX reloaded successfully"
           EOF
 
-      - name: Health Check
+      - name: Health Check - Well-Known Endpoints
         run: |
           ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
-          sleep 2
-
           echo "=== Testing .well-known endpoints ==="
-          curl -s -I https://public.scomm.ai/.well-known/assetlinks.json | head -3
-          curl -s -I https://public.scomm.ai/.well-known/apple-app-site-association | head -3
+          echo "Testing assetlinks.json..."
+          curl -s -I https://public.scomm.ai/.well-known/assetlinks.json | head -1
 
-          echo ""
-          echo "=== Testing HTML pages ==="
-          curl -s -I https://public.scomm.ai/index.html | head -3
-          curl -s -I https://public.scomm.ai/privacy.html | head -3
-          curl -s -I https://public.scomm.ai/EULA.html | head -3
-          curl -s -I https://public.scomm.ai/ToS.html | head -3
-          curl -s -I https://public.scomm.ai/delete-account.html | head -3
-
-          echo ""
-          echo "✅ All deployed content responding"
+          echo "Testing apple-app-site-association..."
+          curl -s -I https://public.scomm.ai/.well-known/apple-app-site-association | head -1
           EOF
 
-      - name: Deployment Complete
-        run: echo "✅ public.scomm.ai content deployed successfully"
+      - name: Health Check - HTML Pages
+        run: |
+          ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER_HOST }} << 'EOF'
+          echo "=== Testing HTML pages ==="
+
+          echo "Testing index.html..."
+          curl -s -I https://public.scomm.ai/index.html | head -1
+
+          echo "Testing privacy.html..."
+          curl -s -I https://public.scomm.ai/privacy.html | head -1
+
+          echo "Testing EULA.html..."
+          curl -s -I https://public.scomm.ai/EULA.html | head -1
+
+          echo "Testing ToS.html..."
+          curl -s -I https://public.scomm.ai/ToS.html | head -1
+
+          echo "Testing delete-account.html..."
+          curl -s -I https://public.scomm.ai/delete-account.html | head -1
+          EOF
+
+      - name: Deployment Summary
+        run: |
+          echo "✅ Deployment Complete!"
+          echo ""
+          echo "Deployed files:"
+          echo "  - .well-known/assetlinks.json"
+          echo "  - .well-known/apple-app-site-association"
+          echo "  - index.html"
+          echo "  - privacy.html"
+          echo "  - EULA.html"
+          echo "  - ToS.html"
+          echo "  - delete-account.html"
+          echo ""
+          echo "All files are live at: https://public.scomm.ai/"
 
       - name: Cleanup
-        run: |
-          rm -f ~/.ssh/id_rsa
+        run: rm -f ~/.ssh/id_rsa
