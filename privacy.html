@@ -138,7 +138,7 @@
 <h1>Privacy Policy</h1>
 <p>scomm.ai Applications and Related Services</p>
 <p>Effective Date: February 06, 2026</p>
-<p>Last Updated: ___________________</p>
+<p>Last Updated: May 18, 2026</p>
 </header>
       <nav aria-label="Table of contents">
     <h2>Table of Contents</h2>
@@ -685,13 +685,38 @@
       </ul>
       <p>Bandwidth optimization</p>
       <h3>AI Model Usage</h3>
-      <p>Local Processing:</p>
+      <p>scomm.ai provides AI-powered features through the user's chosen AI engine. The privacy implications depend on where the AI model runs:</p>
+      <h4>On-Device AI Models (Local Processing)</h4>
       <ul>
-        <li>AI models are downloaded to user&#x27;s device</li>
-        <li>All AI processing happens locally on user&#x27;s device</li>
+        <li>AI models are downloaded to the user&#x27;s device and run locally (e.g., via Ollama)</li>
+        <li>All AI processing happens entirely on the user&#x27;s device</li>
+        <li>No email data, prompts, or user content is transmitted to any external server</li>
+        <li>This is the most private option and involves zero data transfer for AI processing</li>
       </ul>
-      <p>No user data is sent to remote AI servers</p>
-      <p>Currently, no third-party AI services are used for processing user data. If this changes in the future, this Privacy Policy will be updated accordingly.</p>
+      <h4>Cloud-Based AI Models</h4>
+      <p>If the user selects a cloud-hosted AI model (e.g., a cloud model available through Ollama or other supported AI engines), the following data may be sent to the third-party AI provider:</p>
+      <ul>
+        <li>Email content relevant to the user&#x27;s query or prompt</li>
+        <li>User prompts and instructions</li>
+        <li>Any other data necessary to process the AI request</li>
+      </ul>
+      <p>When a cloud-based AI model is selected:</p>
+      <ul>
+        <li>Data is sent directly from the user&#x27;s device to the chosen AI provider</li>
+        <li>scomm.ai does not control, store, or have access to data processed by third-party AI providers</li>
+        <li>The third-party AI provider&#x27;s own privacy policy and terms of service govern how that data is handled</li>
+        <li>Users are responsible for reviewing and accepting the privacy practices of their chosen AI provider</li>
+      </ul>
+      <p><strong>Important:</strong> scomm.ai does not select, recommend, or endorse any particular cloud AI provider. The choice of AI engine is entirely made by the user. We have no control over how third-party AI providers process, store, or use the data sent to them.</p>
+      <h4>Edge Device AI Processing (via SComm Connect)</h4>
+      <p>Through the SComm Connect product, users can query AI models running on their own edge devices (e.g., a laptop, desktop, or dedicated hardware such as an Apple Mac Mini) from their mobile device:</p>
+      <ul>
+        <li>AI models run on the user&#x27;s own edge device, not on scomm.ai servers</li>
+        <li>Queries from the mobile device are transmitted to the user&#x27;s edge device via peer-to-peer (P2P) encrypted connection</li>
+        <li>All data transfers between mobile and edge device are encrypted using DTLS-SRTP</li>
+        <li>scomm.ai servers facilitate the initial connection setup only; once connected, data flows directly between the user&#x27;s devices without passing through our servers</li>
+        <li>If P2P is not possible (strict firewalls, NAT traversal failures), data is relayed through relay.scomm.ai in encrypted form that we cannot read (see Relay Server section)</li>
+      </ul>
       <p>Model Updates:</p>
       <ul>
         <li>Users check for model updates periodically</li>
@@ -791,11 +816,12 @@
         <li>Never transmitted to our servers</li>
       </ul>
       <p>OAuth tokens managed locally</p>
-      <h3>Local AI Processing</h3>
+      <h3>AI Processing</h3>
+      <p>scomm.ai supports AI-powered features through the user's chosen AI engine:</p>
       <ul>
-        <li>All AI-based features (spam detection, search, classification) run locally</li>
-        <li>No email content sent to remote AI services</li>
-        <li>No third-party AI APIs involved</li>
+        <li><strong>On-device models:</strong> When using locally installed AI models (e.g., via Ollama), all processing happens on the user&#x27;s device. No email content or prompts are sent to any external service.</li>
+        <li><strong>Cloud models:</strong> If the user selects a cloud-hosted AI model, email data and user prompts may be sent to the user&#x27;s chosen third-party AI provider. scomm.ai has no control over how that provider handles the data. The provider&#x27;s own privacy policy applies.</li>
+        <li><strong>Edge device models (via SComm Connect):</strong> Users can query AI models running on their own edge devices (laptop, dedicated hardware) from their mobile device. Data is transmitted via encrypted P2P connection between the user&#x27;s own devices.</li>
       </ul>
       <p>Models are updated via download server</p>
       <h3>Version Update Checks</h3>
@@ -887,7 +913,8 @@
         <li>✓ Maintain zero-knowledge architecture for private keys</li>
         <li>✓ Provide transparent privacy controls</li>
         <li>✓ Respect user data ownership</li>
-        <li>✓ Process AI models locally without cloud AI services</li>
+        <li>✓ Process AI models locally on your device when on-device models are selected</li>
+        <li>✓ Clearly inform users that selecting a cloud AI model will send data to that third-party provider</li>
       </ul>
       <h3>What We DO NOT DO:</h3>
       <ul>
@@ -1326,14 +1353,13 @@ We do not use your personal data for automated decision-making that produces leg
         <li>We do not inspect or log communication content</li>
       </ul>
       <p>End-to-end encryption prevents us from reading data</p>
-      <h3>Local AI Processing</h3>
+      <h3>AI Processing</h3>
       <ul>
-        <li>All AI features run locally on your device</li>
-        <li>Email content is not sent to cloud AI services</li>
-        <li>AI models are downloaded to your device</li>
-        <li>No third-party AI APIs involved</li>
+        <li>When using on-device AI models, all processing happens locally — email content never leaves your device</li>
+        <li>When using edge device AI models (via SComm Connect), data is transmitted via encrypted P2P connection to your own hardware</li>
+        <li>scomm.ai servers never process, access, or store your AI queries or results</li>
       </ul>
-      <p>Your data stays on your device</p>
+      <p><strong>Note:</strong> If you choose a cloud-based AI model, your email data and prompts will be sent to that third-party AI provider. scomm.ai has no control over how third-party providers handle your data. Please review the privacy policy of your chosen AI provider before using cloud models.</p>
     </section>
     <section id="data-sharing-and-third-parties">
       <h2>DATA SHARING AND THIRD PARTIES</h2>
