@@ -807,6 +807,36 @@
         <li>Never transmitted to our servers</li>
       </ul>
       <p>OAuth tokens managed locally</p>
+      <h3>Local Storage and Optional Encryption</h3>
+      <p>secMail stores synced email messages and metadata locally on your device for offline access. This data never leaves your device and is not transmitted to Scomm servers.</p>
+      <p><strong>Optional Per-Mailbox Database Encryption:</strong></p>
+      <ul>
+        <li>secMail offers optional per-mailbox database encryption using <strong>AES-256</strong> (via SQLCipher), available in Settings.</li>
+        <li>This feature is <strong>off by default</strong>. You may enable it individually for each mailbox.</li>
+        <li>When enabled, the local mailbox database is encrypted at rest on your device.</li>
+      </ul>
+      <p><strong>Encryption Key Management:</strong></p>
+      <ul>
+        <li>Encryption keys are generated and stored <strong>only on your device</strong> using the platform's secure storage:
+          <ul>
+            <li>Windows/Linux: Credential Manager</li>
+            <li>macOS: Keychain</li>
+            <li>iOS: Keychain</li>
+            <li>Android: Keystore</li>
+          </ul>
+        </li>
+        <li>Encryption keys are <strong>never sent to Scomm servers</strong> or any third party.</li>
+      </ul>
+      <p><strong>Database Protection vs. Encrypted File Copies:</strong></p>
+      <ul>
+        <li><strong>Database protection</strong> encrypts the local SQLite database that stores synced email messages, metadata, and cached content for a mailbox.</li>
+        <li><strong>Encrypted file copies</strong> (such as encrypted email attachments sent via OpenPGP or S/MIME) are a separate feature related to end-to-end email encryption during transmission and are not affected by the local database encryption setting.</li>
+      </ul>
+      <p><strong>Data Removal:</strong></p>
+      <ul>
+        <li>Removing a mailbox from secMail deletes the local database for that mailbox <strong>and</strong> its associated encryption keys from the device's secure storage.</li>
+        <li>No recovery is possible after removal, as the keys exist only on the device.</li>
+      </ul>
       <h3>Local AI Processing (Sentria)</h3>
       <ul>
         <li>All AI-based features (spam detection, search, classification) run locally on the user's device by default</li>
