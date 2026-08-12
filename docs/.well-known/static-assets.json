@@ -1,4 +1,4 @@
-﻿{
+{
   "formatVersion": 1,
   "catalogVersion": 1,
   "assets": [
@@ -10,5 +10,5 @@
   ],
   "signatureKeyId": "assets-k1",
   "signatureAlgorithm": "Ed25519",
-  "signature": "PLACEHOLDER_SIGNED_BY_CI"
+  "signature": "JQ7AixBFXTetCMcvU9b00KHY1BLCkm6H+tNm4oRwxd7joF5Dpo3mX9kfg06pFzxt0WDSxR+M1lv+W1pdGcz0Dg=="
 }
