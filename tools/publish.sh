@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# Build the published site tree under public/ from root source files.
+# Build the published site tree under docs/ from root source files.
 #
 # Source (repo root): HTML, CNAME, _config.yml, .well-known/* (unsigned)
-# Output (public/):   copied static files + signed static-assets.json
+# Output (docs/):     copied static files + signed static-assets.json
+#
+# GitHub Pages (Deploy from a branch) only allows / or /docs as the folder,
+# so the published tree must live in docs/.
 #
 # Usage:
 #   export STATIC_ASSETS_PRIVATE_KEY="..."   # required on main publish
@@ -11,7 +14,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OUT="$ROOT/public"
+OUT="$ROOT/docs"
 MANIFEST="$ROOT/.well-known/static-assets.manifest.json"
 
 if [[ ! -f "$MANIFEST" ]]; then
