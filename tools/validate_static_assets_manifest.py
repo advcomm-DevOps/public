@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the unsigned static-assets manifest."""
+"""Validate the source static-assets / models manifest (pre-sign)."""
 
 from __future__ import annotations
 
@@ -10,6 +10,12 @@ from pathlib import Path
 
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 SUPPORTED_FORMAT_VERSION = 1
+PLACEHOLDER_SIGNATURES = {
+    "",
+    "REPLACE_BY_CI_AFTER_SIGNING",
+    "PLACEHOLDER_SIGNED_BY_CI",
+}
+SIGNATURE_FIELDS = ("signatureKeyId", "signatureAlgorithm", "signature")
 
 
 def _fail(message: str) -> None:
@@ -26,41 +32,74 @@ def validate_manifest(path: Path) -> None:
     if not isinstance(data, dict):
         _fail("Manifest root must be a JSON object")
 
-    for field in ("signatureKeyId", "signatureAlgorithm", "signature"):
-        if field in data:
-            _fail(f"Unsigned manifest must not include {field}")
-
     format_version = data.get("formatVersion")
     if format_version != SUPPORTED_FORMAT_VERSION:
         _fail(f"Unsupported formatVersion: {format_version!r}")
 
-    catalog_version = data.get("catalogVersion")
-    if not isinstance(catalog_version, int) or catalog_version < 1:
-        _fail("catalogVersion must be a positive integer")
+    manifest_version = data.get("manifestVersion")
+    if not isinstance(manifest_version, str) or not manifest_version.strip():
+        _fail("manifestVersion must be a non-empty string")
 
-    assets = data.get("assets")
-    if not isinstance(assets, list) or not assets:
-        _fail("assets must be a non-empty array")
+    updated_at = data.get("updated_at")
+    if updated_at is not None and (
+        not isinstance(updated_at, str) or not updated_at.strip()
+    ):
+        _fail("updated_at must be a non-empty string when present")
 
-    seen_paths: set[str] = set()
-    for index, asset in enumerate(assets):
-        if not isinstance(asset, dict):
-            _fail(f"assets[{index}] must be an object")
+    key_id = data.get("signatureKeyId")
+    if key_id is not None and (not isinstance(key_id, str) or not key_id.strip()):
+        _fail("signatureKeyId must be a non-empty string when present")
 
-        path_value = asset.get("path")
-        if not isinstance(path_value, str) or not path_value.strip():
-            _fail(f"assets[{index}].path must be a non-empty string")
-        if path_value in seen_paths:
-            _fail(f"Duplicate asset path: {path_value}")
-        seen_paths.add(path_value)
+    algorithm = data.get("signatureAlgorithm")
+    if algorithm is not None and algorithm != "Ed25519":
+        _fail(f"Unsupported signatureAlgorithm: {algorithm!r}")
 
-        url = asset.get("url")
+    signature = data.get("signature")
+    if signature is not None:
+        if not isinstance(signature, str):
+            _fail("signature must be a string when present")
+        # Source may include a placeholder; real signatures are written by CI.
+        if signature not in PLACEHOLDER_SIGNATURES and len(signature) < 64:
+            _fail(
+                "signature in source must be a CI placeholder "
+                f"(got {signature!r})"
+            )
+
+    models = data.get("models")
+    if not isinstance(models, list) or not models:
+        _fail("models must be a non-empty array")
+
+    seen_ids: set[str] = set()
+    for index, model in enumerate(models):
+        if not isinstance(model, dict):
+            _fail(f"models[{index}] must be an object")
+
+        model_id = model.get("id")
+        if not isinstance(model_id, str) or not model_id.strip():
+            _fail(f"models[{index}].id must be a non-empty string")
+        if model_id in seen_ids:
+            _fail(f"Duplicate model id: {model_id}")
+        seen_ids.add(model_id)
+
+        kind = model.get("kind")
+        if not isinstance(kind, str) or not kind.strip():
+            _fail(f"models[{index}].kind must be a non-empty string")
+
+        filename = model.get("filename")
+        if not isinstance(filename, str) or not filename.strip():
+            _fail(f"models[{index}].filename must be a non-empty string")
+
+        url = model.get("url")
         if not isinstance(url, str) or not url.startswith(("http://", "https://")):
-            _fail(f"assets[{index}].url must be an absolute http(s) URL")
+            _fail(f"models[{index}].url must be an absolute http(s) URL")
 
-        sha256 = asset.get("sha256")
+        sha256 = model.get("sha256")
         if not isinstance(sha256, str) or not SHA256_RE.fullmatch(sha256.lower()):
-            _fail(f"assets[{index}].sha256 must be a 64-char lowercase hex string")
+            _fail(f"models[{index}].sha256 must be a 64-char lowercase hex string")
+
+        bytes_value = model.get("bytes")
+        if not isinstance(bytes_value, int) or isinstance(bytes_value, bool) or bytes_value < 1:
+            _fail(f"models[{index}].bytes must be a positive integer")
 
     print(f"[OK] Valid static-assets manifest: {path}")
 

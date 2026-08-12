@@ -49,7 +49,8 @@ jobs:
       - name: Build docs/ from source
         env:
           STATIC_ASSETS_PRIVATE_KEY: ${{ secrets.STATIC_ASSETS_PRIVATE_KEY }}
-          STATIC_ASSETS_KEY_ID: assets-k1
+          # Falls back to signatureKeyId in the source manifest (models-k1).
+          STATIC_ASSETS_KEY_ID: ${{ vars.STATIC_ASSETS_KEY_ID }}
         run: |
           set -euo pipefail
           if [ -z "${STATIC_ASSETS_PRIVATE_KEY:-}" ]; then

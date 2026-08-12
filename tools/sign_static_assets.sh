@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Sign static-assets.manifest.json with Ed25519 (OpenSSL 3.x).
+# Sign static-assets.manifest.json (models catalog) with Ed25519 (OpenSSL 3.x).
 #
 # Usage:
-#   export STATIC_ASSETS_PRIVATE_KEY="$(cat assets-k1-private.pem)"
-#   export STATIC_ASSETS_KEY_ID=assets-k1
+#   export STATIC_ASSETS_PRIVATE_KEY="$(cat models-k1-private.pem)"
+#   export STATIC_ASSETS_KEY_ID=models-k1   # optional; defaults to signatureKeyId
 #   ./tools/sign_static_assets.sh \
 #     .well-known/static-assets.manifest.json \
 #     docs/.well-known/static-assets.json
@@ -14,12 +14,11 @@
 #   scomm-static-assets-v1\0<signatureKeyId>\0<manifestSha256>
 #
 # manifestSha256 is lowercase hex SHA-256 of the canonical unsigned manifest JSON
-# (sorted keys, assets sorted by path, no signature fields).
+# (sorted keys, models sorted by id, signature fields removed).
 set -euo pipefail
 
-MANIFEST_IN="${1:?unsigned manifest path}"
+MANIFEST_IN="${1:?source manifest path}"
 MANIFEST_OUT="${2:?signed manifest output path}"
-KEY_ID="${STATIC_ASSETS_KEY_ID:-assets-k1}"
 
 if [[ -z "${STATIC_ASSETS_PRIVATE_KEY:-}" ]]; then
   echo "Missing STATIC_ASSETS_PRIVATE_KEY env var" >&2
@@ -38,6 +37,24 @@ trap cleanup EXIT
 
 printf '%s\n' "$STATIC_ASSETS_PRIVATE_KEY" | sed 's/\\n/\n/g' > "$KEY_FILE"
 
+# Resolve key id: env override > manifest.signatureKeyId > models-k1
+KEY_ID="$(
+  python3 - "$MANIFEST_IN" "${STATIC_ASSETS_KEY_ID:-}" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+data = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+env_key = sys.argv[2].strip()
+if env_key:
+    print(env_key)
+elif isinstance(data.get("signatureKeyId"), str) and data["signatureKeyId"].strip():
+    print(data["signatureKeyId"].strip())
+else:
+    print("models-k1")
+PY
+)"
+
 manifest_sha="$(python3 - "$MANIFEST_IN" "$SIGN_INPUT" "$KEY_ID" <<'PY'
 import hashlib
 import json
@@ -52,10 +69,10 @@ data = json.loads(manifest_path.read_text(encoding="utf-8"))
 for field in ("signatureKeyId", "signatureAlgorithm", "signature"):
     data.pop(field, None)
 
-assets = data.get("assets")
-if not isinstance(assets, list):
-    raise SystemExit("assets must be an array")
-data["assets"] = sorted(assets, key=lambda item: item["path"])
+models = data.get("models")
+if not isinstance(models, list):
+    raise SystemExit("models must be an array")
+data["models"] = sorted(models, key=lambda item: item["id"])
 
 canonical = json.dumps(data, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
 manifest_sha = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
@@ -87,6 +104,7 @@ data["signatureKeyId"] = key_id
 data["signatureAlgorithm"] = "Ed25519"
 data["signature"] = signature_b64
 
+manifest_out.parent.mkdir(parents=True, exist_ok=True)
 manifest_out.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 PY
 

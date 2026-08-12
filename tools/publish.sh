@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Build the published site tree under docs/ from root source files.
 #
-# Source (repo root): HTML, CNAME, _config.yml, .well-known/* (unsigned)
+# Source (repo root): HTML, CNAME, _config.yml, .well-known/* (unsigned / placeholder)
 # Output (docs/):     copied static files + signed static-assets.json
 #
 # GitHub Pages (Deploy from a branch) only allows / or /docs as the folder,
@@ -9,7 +9,7 @@
 #
 # Usage:
 #   export STATIC_ASSETS_PRIVATE_KEY="..."   # required on main publish
-#   export STATIC_ASSETS_KEY_ID=assets-k1    # optional
+#   export STATIC_ASSETS_KEY_ID=models-k1    # optional; defaults to manifest key id
 #   ./tools/publish.sh
 set -euo pipefail
 
