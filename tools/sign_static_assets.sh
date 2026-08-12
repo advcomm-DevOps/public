@@ -6,9 +6,9 @@
 #   export STATIC_ASSETS_KEY_ID=assets-k1
 #   ./tools/sign_static_assets.sh \
 #     .well-known/static-assets.manifest.json \
-#     public/.well-known/static-assets.json
+#     docs/.well-known/static-assets.json
 #
-# Prefer ./tools/publish.sh to rebuild the full public/ tree.
+# Prefer ./tools/publish.sh to rebuild the full docs/ tree.
 #
 # Signed payload (UTF-8 bytes, no trailing newline):
 #   scomm-static-assets-v1\0<signatureKeyId>\0<manifestSha256>

@@ -1,7 +1,7 @@
 name: Publish site
 
-# Source files live at the repo root; CI post-processes them into public/
-# (signing, etc.) and GitHub Pages serves from public/.
+# Source files live at the repo root; CI post-processes them into docs/
+# (signing, etc.) and GitHub Pages serves from /docs (branch deploy).
 on:
   push:
     branches: [main]
@@ -23,7 +23,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
 
 concurrency:
   group: publish-site-${{ github.ref }}
@@ -47,7 +46,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Build public/ from source
+      - name: Build docs/ from source
         env:
           STATIC_ASSETS_PRIVATE_KEY: ${{ secrets.STATIC_ASSETS_PRIVATE_KEY }}
           STATIC_ASSETS_KEY_ID: assets-k1
@@ -60,26 +59,15 @@ jobs:
           chmod +x tools/publish.sh tools/sign_static_assets.sh
           ./tools/publish.sh
 
-      - name: Configure GitHub Pages to serve public/
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          gh api "repos/${{ github.repository }}/pages" \
-            -X PUT \
-            -f build_type=legacy \
-            -f "source[branch]=main" \
-            -f "source[path]=/public"
-
       - name: Commit published site
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/
+          git add docs/
           if git diff --staged --quiet; then
             echo "Published site unchanged; nothing to commit"
             exit 0
           fi
-          git commit -m "Publish site to public/"
+          git commit -m "Publish site to docs/"
           git push
