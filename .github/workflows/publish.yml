@@ -1,0 +1,85 @@
+name: Publish site
+
+# Source files live at the repo root; CI post-processes them into public/
+# (signing, etc.) and GitHub Pages serves from public/.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'CNAME'
+      - '_config.yml'
+      - '.well-known/**'
+      - 'tools/**'
+      - '.github/workflows/publish.yml'
+  pull_request:
+    paths:
+      - '*.html'
+      - 'CNAME'
+      - '_config.yml'
+      - '.well-known/**'
+      - 'tools/**'
+      - '.github/workflows/publish.yml'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publish-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate source manifest
+        run: python3 tools/validate_static_assets_manifest.py .well-known/static-assets.manifest.json
+
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build public/ from source
+        env:
+          STATIC_ASSETS_PRIVATE_KEY: ${{ secrets.STATIC_ASSETS_PRIVATE_KEY }}
+          STATIC_ASSETS_KEY_ID: assets-k1
+        run: |
+          set -euo pipefail
+          if [ -z "${STATIC_ASSETS_PRIVATE_KEY:-}" ]; then
+            echo "::error::STATIC_ASSETS_PRIVATE_KEY secret is not set on scomm-ai/public"
+            exit 1
+          fi
+          chmod +x tools/publish.sh tools/sign_static_assets.sh
+          ./tools/publish.sh
+
+      - name: Configure GitHub Pages to serve public/
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api "repos/${{ github.repository }}/pages" \
+            -X PUT \
+            -f build_type=legacy \
+            -f "source[branch]=main" \
+            -f "source[path]=/public"
+
+      - name: Commit published site
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/
+          if git diff --staged --quiet; then
+            echo "Published site unchanged; nothing to commit"
+            exit 0
+          fi
+          git commit -m "Publish site to public/"
+          git push

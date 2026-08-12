@@ -1,0 +1,14 @@
+﻿{
+  "formatVersion": 1,
+  "catalogVersion": 1,
+  "assets": [
+    {
+      "path": "dummy/example.bin",
+      "url": "https://public.scomm.ai/dummy/example.bin",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "signatureKeyId": "assets-k1",
+  "signatureAlgorithm": "Ed25519",
+  "signature": "PLACEHOLDER_SIGNED_BY_CI"
+}
