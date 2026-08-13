@@ -24,5 +24,6 @@ done
 
 cp "$ROOT/.well-known/apple-app-site-association" "$OUT/.well-known/"
 cp "$ROOT/.well-known/assetlinks.json" "$OUT/.well-known/"
+: > "$OUT/.nojekyll"
 
 echo "Published site to $OUT"
