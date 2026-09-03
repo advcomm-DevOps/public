@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "WA7GC3J8GA.ai.scomm.mail",
+        "appID": "WA7GC3J8GA.ai.scomm",
         "paths": ["/oauth2/*"]
       }
     ]
