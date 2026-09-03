@@ -1,18 +1,10 @@
 name: Publish site
 
-# Source files live at the repo root; CI post-processes them into docs/
-# (signing, etc.) and GitHub Pages serves from /docs (branch deploy).
+# Source files live at the repo root; CI copies them into docs/
+# and GitHub Pages serves from /docs (branch deploy).
 on:
   push:
     branches: [main]
-    paths:
-      - '*.html'
-      - 'CNAME'
-      - '_config.yml'
-      - '.well-known/**'
-      - 'tools/**'
-      - '.github/workflows/publish.yml'
-  pull_request:
     paths:
       - '*.html'
       - 'CNAME'
@@ -29,17 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Validate source manifest
-        run: python3 tools/validate_static_assets_manifest.py .well-known/static-assets.manifest.json
-
   publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,17 +29,9 @@ jobs:
           fetch-depth: 0
 
       - name: Build docs/ from source
-        env:
-          STATIC_ASSETS_PRIVATE_KEY: ${{ secrets.STATIC_ASSETS_PRIVATE_KEY }}
-          # Falls back to signatureKeyId in the source manifest (models-k1).
-          STATIC_ASSETS_KEY_ID: ${{ vars.STATIC_ASSETS_KEY_ID }}
         run: |
           set -euo pipefail
-          if [ -z "${STATIC_ASSETS_PRIVATE_KEY:-}" ]; then
-            echo "::error::STATIC_ASSETS_PRIVATE_KEY secret is not set on scomm-ai/public"
-            exit 1
-          fi
-          chmod +x tools/publish.sh tools/sign_static_assets.sh
+          chmod +x tools/publish.sh
           ./tools/publish.sh
 
       - name: Commit published site
