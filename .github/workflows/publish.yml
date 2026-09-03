@@ -1,0 +1,48 @@
+name: Publish site
+
+# Source files live at the repo root; CI copies them into docs/
+# and GitHub Pages serves from /docs (branch deploy).
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'CNAME'
+      - '_config.yml'
+      - '.well-known/**'
+      - 'tools/**'
+      - '.github/workflows/publish.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build docs/ from source
+        run: |
+          set -euo pipefail
+          chmod +x tools/publish.sh
+          ./tools/publish.sh
+
+      - name: Commit published site
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          if git diff --staged --quiet; then
+            echo "Published site unchanged; nothing to commit"
+            exit 0
+          fi
+          git commit -m "Publish site to docs/"
+          git push

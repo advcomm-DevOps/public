@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ai.scomm",
+      "sha256_cert_fingerprints": [
+        "67:F3:76:0B:D4:D5:65:26:EE:66:9D:CC:59:D3:F1:D3:CF:B4:D9:84:3E:88:90:63:4C:EB:F8:E9:E8:34:EA:F2",
+        "B0:4F:D7:2F:F0:E5:56:A4:46:0A:C5:70:DA:19:97:B8:47:C6:2A:DA:BA:8C:FB:D1:BC:6B:C8:A6:40:C2:96:21"
+      ]
+    }
+  }
+]
