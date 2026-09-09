@@ -149,7 +149,7 @@
       <li><a href="#overview-of-our-services">Overview of Our Services</a></li>
       <li><a href="#static-website-scomm-ai">Static Website (scomm.ai)</a></li>
       <li><a href="#billing-portal">Billing Portal</a></li>
-      <li><a href="#public-key-server-pubkey-scomm-ai">Public Key Server (pubkey.scomm.ai)</a></li>
+      <li><a href="#public-key-server-pubkey-scomm-ai">Public Key Server (discovery.scomm.ai)</a></li>
       <li><a href="#connect-server-connect-scomm-ai">Connect Server (connect.scomm.ai)</a></li>
       <li><a href="#relay-server-relay-scomm-ai">Relay Server (relay.scomm.ai)</a></li>
       <li><a href="#public-info-server-public-scomm-ai">Public Info Server (public.scomm.ai)</a></li>
@@ -250,12 +250,12 @@
       <ul>
         <li>Static Website (www.scomm.ai) - Public information and marketing</li>
         <li>Billing Portal (billing.scomm.ai) - Subscription and payment management</li>
-        <li>Public Key Server (pubkey.scomm.ai) - Public key storage for encryption</li>
+        <li>Public Key Server (discovery.scomm.ai) - Public key storage for encryption</li>
         <li>Connect Server (connect.scomm.ai) - Connection management for SComm Connect</li>
         <li>Relay Server (relay.scomm.ai) - Data relay when P2P is not possible</li>
         <li>Public Info Server (public.scomm.ai) - Public resources and version information</li>
         <li>Download Server (d.scomm.ai) - Application downloads and AI model distribution</li>
-        <li>Authentication Server (auth.scomm.ai) - Token management and authentication</li>
+
       </ul>
       <p>Client Application (secMail):</p>
       <ul>
@@ -374,7 +374,7 @@
       </ul>
       <p>Legal obligation (tax and financial record-keeping)</p>
       <h3>Separation from Email Data</h3>
-      <p>Profile sign-in (auth.scomm.ai) and billing (billing.scomm.ai) are entirely separate from email functionality. These services handle subscription management and user profile only. They do not receive, store, or process:</p>
+      <p>Billing (billing.scomm.ai) is entirely separate from email functionality. This service handles subscription management and user profile only. It does not receive, store, or process:</p>
       <ul>
         <li>Gmail message content or email bodies</li>
         <li>Mailbox OAuth refresh tokens</li>
@@ -383,7 +383,7 @@
       </ul>
     </section>
     <section id="public-key-server-pubkey-scomm-ai">
-      <h2>PUBLIC KEY SERVER (pubkey.scomm.ai)</h2>
+      <h2>PUBLIC KEY SERVER (discovery.scomm.ai)</h2>
       <h3>Data Stored</h3>
       <p>This server stores cryptographic public keys for email encryption:</p>
       <ul>
@@ -924,7 +924,7 @@
       <h3>Sign Out vs. Remove Mailbox</h3>
       <dl>
         <dt>Sign out</dt>
-        <dd>Ends your current session with the Scomm account (auth.scomm.ai). Does not affect locally stored Gmail data or mailbox credentials.</dd>
+        <dd>Ends your current session with the Scomm account. Does not affect locally stored Gmail data or mailbox credentials.</dd>
         <dt>Remove mailbox from device</dt>
         <dd>Deletes all locally stored Gmail data for that mailbox, including the local database, cached messages, and stored OAuth credentials. This is the way to delete Gmail data from secMail.</dd>
       </dl>
@@ -1260,7 +1260,7 @@ We do not use your personal data for automated decision-making that produces leg
       <p>Zero-knowledge architecture</p>
       <p>Public Keys:</p>
       <ul>
-        <li>Stored on pubkey.scomm.ai</li>
+        <li>Stored on discovery.scomm.ai</li>
         <li>Publicly accessible for encryption purposes</li>
       </ul>
       <p>Integrity verified through cryptographic signatures</p>
@@ -1801,7 +1801,7 @@ Where permitted by law, we may publish aggregated transparency information regar
       <h3>Sign Out vs. Remove Mailbox</h3>
       <dl>
         <dt>Sign out</dt>
-        <dd>Ends your current Scomm session (auth.scomm.ai). Your locally stored mailbox data and email credentials remain on the device.</dd>
+        <dd>Ends your current Scomm session. Your locally stored mailbox data and email credentials remain on the device.</dd>
         <dt>Remove mailbox from device</dt>
         <dd>Deletes all locally stored data for that email account, including the database, cached messages, and OAuth credentials. This is the correct way to delete Gmail data from secMail.</dd>
       </dl>
