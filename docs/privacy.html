@@ -138,7 +138,7 @@
 <h1>Privacy Policy</h1>
 <p>scomm.ai Applications and Related Services</p>
 <p>Effective Date: February 06, 2026</p>
-<p>Last Updated: June 29, 2026</p>
+<p>Last Updated: October 28, 2026</p>
 </header>
       <nav aria-label="Table of contents">
     <h2>Table of Contents</h2>
@@ -700,12 +700,15 @@
         <li>No email content, attachments, or contact data is sent to Scomm servers or any third-party AI service when using on-device AI.</li>
         <li>Scomm does not use Gmail data or any user email content to train AI models.</li>
       </ul>
-      <p>Cloud AI (Optional, User's Choice):</p>
+      <p>Cloud AI Providers You Choose (Optional, "Bring Your Own Key"):</p>
       <ul>
-        <li>secMail may offer the option to use a cloud-based AI model instead of a local model.</li>
-        <li>If the user chooses a cloud AI provider, data relevant to the AI feature may be transmitted to that provider according to the provider's own privacy policy.</li>
-        <li>This is an explicit user choice — cloud AI is never enabled by default.</li>
-        <li>Scomm does not receive or retain data sent to third-party AI providers.</li>
+        <li>Sentria is off by default. You can turn it on and, if you wish, connect a third-party AI provider using your own API key. Supported providers include OpenAI, Anthropic, Google (Gemini), DeepSeek, OpenRouter, Groq, Mistral, Together AI, xAI, Microsoft Azure OpenAI, Amazon Bedrock, and other compatible services you configure.</li>
+        <li>Before secMail sends any data to a provider, it shows a consent screen that names the provider and the address the data is sent to, explains what is sent, and asks for your permission. Nothing is sent to that provider unless you tap Allow. If you change the provider's address, you are asked again.</li>
+        <li>What is sent: only when you use an AI feature (for example, summarize, draft a reply, or ask Sentria a question), secMail sends your question or instruction and the content of the emails that feature works on (sender, recipients, subject and message text). Your mail password, OAuth tokens, private encryption keys, and other mailboxes are never sent.</li>
+        <li>How it is sent: directly from your device to the provider over an encrypted connection (HTTPS), authenticated with your API key. The request does not pass through Scomm servers, and Scomm does not receive, store, or have access to it.</li>
+        <li>Your API key is stored only on your device in the platform's secure storage (Keychain on iOS/macOS, Keystore on Android, Credential Manager on Windows/Linux).</li>
+        <li>How the provider uses the data: the provider processes it under its own API terms and privacy policy. Please review the provider's policy before you allow it. Scomm does not sell this data and does not use it to train AI models.</li>
+        <li>You can stop sharing at any time by deleting the connection in Settings &gt; AI Assistant, or by turning Sentria off.</li>
       </ul>
       <p>Model Updates:</p>
       <ul>
@@ -840,7 +843,7 @@
       <h3>Local AI Processing (Sentria)</h3>
       <ul>
         <li>All AI-based features (spam detection, search, classification) run locally on the user's device by default</li>
-        <li>No email content is sent to Scomm servers or remote AI services unless the user explicitly chooses a cloud AI model</li>
+        <li>No email content is sent to Scomm servers. Email content is sent to a remote AI service only if the user connects a cloud AI provider and allows data sharing on the consent screen (see "Cloud AI Providers You Choose")</li>
         <li>Scomm does not use Gmail data to train AI models</li>
       </ul>
       <p>Models are updated via download server</p>
@@ -956,14 +959,14 @@
       <p>In compliance with Google API Services User Data Policy, we declare:</p>
       <h3>What We DO:</h3>
       <ul>
-        <li>✓ Process email data only on your device</li>
+        <li>✓ Process email data only on your device, except when you send it to an AI provider you chose and allowed</li>
         <li>✓ Use data only for email functionality</li>
         <li>✓ Encrypt data in transit (TLS/HTTPS)</li>
         <li>✓ Allow users to delete their data anytime</li>
         <li>✓ Maintain zero-knowledge architecture for private keys</li>
         <li>✓ Provide transparent privacy controls</li>
         <li>✓ Respect user data ownership</li>
-        <li>✓ Process AI models locally without cloud AI services</li>
+        <li>✓ Run AI on your device by default; use a cloud AI provider only when you connect one and allow it</li>
       </ul>
       <h3>What We DO NOT DO:</h3>
       <ul>
@@ -972,7 +975,7 @@
         <li>✗ Use data for targeted advertising</li>
         <li>✗ Perform analytics on email content</li>
         <li>✗ Use data for credit or lending decisions</li>
-        <li>✗ Transfer email data to third parties</li>
+        <li>✗ Transfer email data to third parties, except to an AI provider you choose and explicitly allow, only to provide the AI feature you request</li>
         <li>✗ Track or monitor user email activity</li>
         <li>✗ Use email data to train AI models</li>
         <li>✗ Sell user data</li>
@@ -1402,14 +1405,14 @@ We do not use your personal data for automated decision-making that produces leg
         <li>We do not inspect or log communication content</li>
       </ul>
       <p>End-to-end encryption prevents us from reading data</p>
-      <h3>Local AI Processing</h3>
+      <h3>AI Processing</h3>
       <ul>
-        <li>All AI features run locally on your device</li>
-        <li>Email content is not sent to cloud AI services</li>
-        <li>AI models are downloaded to your device</li>
-        <li>No third-party AI APIs involved</li>
+        <li>By default, AI features run on your device or on a machine you run yourself</li>
+        <li>Email content is not sent to Scomm servers</li>
+        <li>Email content is sent to a third-party AI provider only if you connect one with your own API key and allow it on the consent screen</li>
+        <li>Data sent to a provider you allow goes directly from your device to that provider</li>
       </ul>
-      <p>Your data stays on your device</p>
+      <p>Unless you allow a cloud AI provider, your data stays on your device</p>
     </section>
     <section id="data-sharing-and-third-parties">
       <h2>DATA SHARING AND THIRD PARTIES</h2>
@@ -1456,10 +1459,20 @@ We do not use your personal data for automated decision-making that produces leg
         <dd>Send OTPs, receipts, notifications</dd>
       </dl>
       <p>Safeguards: GDPR-compliant providers, minimal data sharing</p>
+      <p>AI Providers You Choose (only if you connect one):</p>
+      <dl>
+        <dt>Who</dt>
+        <dd>The cloud AI provider you connect with your own API key (for example OpenAI, Anthropic, Google Gemini, DeepSeek, OpenRouter, Groq, Mistral, Together AI, xAI, Azure OpenAI, Amazon Bedrock)</dd>
+        <dt>What</dt>
+        <dd>Your AI question or instruction and the content of the emails the AI feature works on (sender, recipients, subject, message text)</dd>
+        <dt>Why</dt>
+        <dd>To provide the AI feature you request (for example, summarize or draft a reply)</dd>
+      </dl>
+      <p>Safeguards: off by default; per-provider consent screen before anything is sent; sent directly from your device over HTTPS, never through Scomm servers; you can revoke at any time. The provider's own API terms and privacy policy apply.</p>
       <h3>What We NEVER Share</h3>
       <ul>
-        <li>Email content or communications</li>
-        <li>Email metadata or headers</li>
+        <li>Email content or communications (Scomm never receives it; only your device sends it, to an AI provider you allowed)</li>
+        <li>Email metadata or headers (same exception as above)</li>
         <li>Private cryptographic keys (we don&#x27;t have access)</li>
         <li>Private key encryption passwords (you choose, we never see)</li>
         <li>OAuth tokens (managed locally)</li>

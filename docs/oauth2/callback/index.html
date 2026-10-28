@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Returning to Scomm.AI</title>
+  <script>
+    (function () {
+      var allowed = ["code", "state", "error", "error_description"];
+      var incoming = new URLSearchParams(window.location.search);
+      var outgoing = new URLSearchParams();
+      for (var i = 0; i < allowed.length; i++) {
+        var key = allowed[i];
+        if (!incoming.has(key)) continue;
+        outgoing.append(key, incoming.get(key));
+      }
+      var query = outgoing.toString();
+      window.location.replace("scomm://auth-callback" + (query ? "?" + query : ""));
+    })();
+  </script>
+</head>
+<body>Returning to Scomm.AI…</body>
+</html>

@@ -22,6 +22,11 @@ for html in "$ROOT"/*.html; do
   cp "$html" "$OUT/"
 done
 
+if [ -d "$ROOT/oauth2" ]; then
+  mkdir -p "$OUT/oauth2"
+  cp -a "$ROOT/oauth2/." "$OUT/oauth2/"
+fi
+
 cp "$ROOT/.well-known/apple-app-site-association" "$OUT/.well-known/"
 cp "$ROOT/.well-known/assetlinks.json" "$OUT/.well-known/"
 : > "$OUT/.nojekyll"
